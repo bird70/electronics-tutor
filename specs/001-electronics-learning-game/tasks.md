@@ -11,12 +11,12 @@
 
 **Purpose**: Initialize the TypeScript web app, core folders, and base tooling.
 
-- [ ] T001 Initialize project scripts and dependencies in package.json
-- [ ] T002 Create Vite + TypeScript app shell in src/app/main.tsx
-- [ ] T003 [P] Configure TypeScript compiler options in tsconfig.json
-- [ ] T004 [P] Configure linting and formatting rules in .eslintrc.cjs
-- [ ] T005 Create feature folder structure in src/components/.gitkeep
-- [ ] T006 [P] Add base visual design tokens and layout variables in src/styles/tokens.css
+- [X] T001 Initialize project scripts and dependencies in package.json
+- [X] T002 Create Vite + TypeScript app shell in src/app/main.tsx
+- [X] T003 [P] Configure TypeScript compiler options in tsconfig.json
+- [X] T004 [P] Configure linting and formatting rules in .eslintrc.cjs
+- [X] T005 Create feature folder structure in src/components/.gitkeep
+- [X] T006 [P] Add base visual design tokens and layout variables in src/styles/tokens.css
 
 ---
 
@@ -26,15 +26,15 @@
 
 **CRITICAL**: No user story implementation should begin before this phase is complete.
 
-- [ ] T007 Implement shared domain types for lessons, challenges, and progress in src/domain/learning/types.ts
-- [ ] T008 [P] Implement circuit primitives and graph models in src/domain/circuit/types.ts
-- [ ] T009 [P] Implement progress profile storage adapter in src/services/persistence/progressStore.ts
-- [ ] T010 Implement lesson-content schema validation service in src/services/learning/lessonValidator.ts
-- [ ] T011 Implement progress-profile schema validation service in src/services/persistence/progressValidator.ts
-- [ ] T012 Implement app-level state container for lesson, circuit, and progress state in src/state/store.ts
-- [ ] T013 Create content loading service for lesson plans, lessons, and challenges in src/services/content/contentRepository.ts
-- [ ] T014 Create shared app routes and navigation shell in src/app/router.tsx
-- [ ] T014b Implement session-resume prompt on app launch using last progress state in src/components/progress/ResumePrompt.tsx
+- [X] T007 Implement shared domain types for lessons, challenges, and progress in src/domain/learning/types.ts
+- [X] T008 [P] Implement circuit primitives and graph models in src/domain/circuit/types.ts
+- [X] T009 [P] Implement progress profile storage adapter in src/services/persistence/progressStore.ts
+- [X] T010 Implement lesson-content schema validation service in src/services/learning/lessonValidator.ts
+- [X] T011 Implement progress-profile schema validation service in src/services/persistence/progressValidator.ts
+- [X] T012 Implement app-level state container for lesson, circuit, and progress state in src/state/store.ts
+- [X] T013 Create content loading service for lesson plans, lessons, and challenges in src/services/content/contentRepository.ts
+- [X] T014 Create shared app routes and navigation shell in src/app/router.tsx
+- [X] T014b Implement session-resume prompt on app launch using last progress state in src/components/progress/ResumePrompt.tsx
 
 **Checkpoint**: Foundation ready. User story phases can now proceed.
 
@@ -46,15 +46,15 @@
 
 **Independent Test**: Start a beginner lesson, build the target circuit, modify a component value, and verify feedback updates correctly.
 
-- [ ] T015 [P] [US1] Implement deterministic circuit evaluation engine for beginner rules in src/services/simulation/evaluateCircuit.ts
-- [ ] T016 [P] [US1] Implement educational feedback generator for circuit outcomes in src/services/feedback/explainCircuit.ts
-- [ ] T017 [P] [US1] Build interactive circuit workspace canvas and node wiring UI in src/components/circuit/CircuitWorkspace.tsx
-- [ ] T018 [US1] Build component palette with adjustable values for lesson context in src/components/circuit/ComponentPalette.tsx
-- [ ] T019 [US1] Build guided lesson player with step instructions and target checks in src/components/lesson/LessonPlayer.tsx
-- [ ] T019b [US1] Implement concept-tag index and per-lesson tag badges in src/components/lesson/ConceptTagBadge.tsx
-- [ ] T020 [US1] Compose lesson page integrating workspace, palette, and feedback panel in src/app/routes/LessonRoute.tsx
-- [ ] T021 [US1] Add beginner lesson content pack with valid/invalid wiring examples in src/content/lessons/basics-series-circuit.json
-- [ ] T021b [US1] Build post-lesson concept check quiz component and sample assessment content in src/components/lesson/ConceptCheck.tsx
+- [X] T015 [P] [US1] Implement deterministic circuit evaluation engine for beginner rules in src/services/simulation/evaluateCircuit.ts
+- [X] T016 [P] [US1] Implement educational feedback generator for circuit outcomes in src/services/feedback/explainCircuit.ts
+- [X] T017 [P] [US1] Build interactive circuit workspace canvas and node wiring UI in src/components/circuit/CircuitWorkspace.tsx
+- [X] T018 [US1] Build component palette with adjustable values for lesson context in src/components/circuit/ComponentPalette.tsx
+- [X] T019 [US1] Build guided lesson player with step instructions and target checks in src/components/lesson/LessonPlayer.tsx
+- [X] T019b [US1] Implement concept-tag index and per-lesson tag badges in src/components/lesson/ConceptTagBadge.tsx
+- [X] T020 [US1] Compose lesson page integrating workspace, palette, and feedback panel in src/app/routes/LessonRoute.tsx
+- [X] T021 [US1] Add beginner lesson content pack with valid/invalid wiring examples in src/content/lessons/basics-series-circuit.json
+- [X] T021b [US1] Build post-lesson concept check quiz component and sample assessment content in src/components/lesson/ConceptCheck.tsx
 
 **Checkpoint**: User Story 1 is fully functional and independently testable.
 
@@ -66,13 +66,13 @@
 
 **Independent Test**: Complete one challenge and confirm unlock, progression indicators, and lock messaging for higher levels.
 
-- [ ] T022 [P] [US2] Implement challenge completion and unlock rule engine in src/domain/gamification/unlockRules.ts
-- [ ] T023 [P] [US2] Implement challenge scoring and reward calculation service in src/domain/gamification/scoring.ts
-- [ ] T024 [US2] Build challenge board UI with level gating states in src/components/challenge/ChallengeBoard.tsx
-- [ ] T025 [US2] Build challenge run view with objectives and completion feedback in src/components/challenge/ChallengePlayer.tsx
-- [ ] T026 [US2] Build learner progress dashboard for levels and next recommended challenge in src/components/progress/ProgressDashboard.tsx
-- [ ] T027 [US2] Add challenge content set with increasing levels and win conditions in src/content/challenges/challenge-track-01.json
-- [ ] T028 [US2] Persist challenge completion and unlocked levels to progress profile in src/services/persistence/progressSync.ts
+- [X] T022 [P] [US2] Implement challenge completion and unlock rule engine in src/domain/gamification/unlockRules.ts
+- [X] T023 [P] [US2] Implement challenge scoring and reward calculation service in src/domain/gamification/scoring.ts
+- [X] T024 [US2] Build challenge board UI with level gating states in src/components/challenge/ChallengeBoard.tsx
+- [X] T025 [US2] Build challenge run view with objectives and completion feedback in src/components/challenge/ChallengePlayer.tsx
+- [X] T026 [US2] Build learner progress dashboard for levels and next recommended challenge in src/components/progress/ProgressDashboard.tsx
+- [X] T027 [US2] Add challenge content set with increasing levels and win conditions in src/content/challenges/challenge-track-01.json
+- [X] T028 [US2] Persist challenge completion and unlocked levels to progress profile in src/services/persistence/progressSync.ts
 
 **Checkpoint**: User Story 2 is fully functional and independently testable.
 
@@ -84,13 +84,13 @@
 
 **Independent Test**: Select a plan, complete first lesson in sequence, and open linked references from lesson details.
 
-- [ ] T029 [P] [US3] Implement lesson plan sequencing and prerequisite resolver in src/domain/learning/planSequencer.ts
-- [ ] T029b [US3] Build prerequisite gate overlay with lock state and unlock instructions in src/components/lesson/PrerequisiteGate.tsx
-- [ ] T030 [P] [US3] Build lesson plan selector and activation UI in src/components/lesson/LessonPlanSelector.tsx
-- [ ] T031 [US3] Build lesson detail panel with objective tags and reference links in src/components/lesson/LessonDetail.tsx
-- [ ] T032 [US3] Implement route for active learning path and lesson progression in src/app/routes/LearningPathRoute.tsx
-- [ ] T033 [US3] Add starter lesson plan content for beginner progression in src/content/lesson-plans/beginner-foundations.json
-- [ ] T034 [US3] Add curated reference resource catalog mapped to lesson concepts in src/content/references/resources.json
+- [X] T029 [P] [US3] Implement lesson plan sequencing and prerequisite resolver in src/domain/learning/planSequencer.ts
+- [X] T029b [US3] Build prerequisite gate overlay with lock state and unlock instructions in src/components/lesson/PrerequisiteGate.tsx
+- [X] T030 [P] [US3] Build lesson plan selector and activation UI in src/components/lesson/LessonPlanSelector.tsx
+- [X] T031 [US3] Build lesson detail panel with objective tags and reference links in src/components/lesson/LessonDetail.tsx
+- [X] T032 [US3] Implement route for active learning path and lesson progression in src/app/routes/LearningPathRoute.tsx
+- [X] T033 [US3] Add starter lesson plan content for beginner progression in src/content/lesson-plans/beginner-foundations.json
+- [X] T034 [US3] Add curated reference resource catalog mapped to lesson concepts in src/content/references/resources.json
 
 **Checkpoint**: User Story 3 is fully functional and independently testable.
 
@@ -100,11 +100,11 @@
 
 **Purpose**: Improve quality, resilience, and release readiness across stories.
 
-- [ ] T035 [P] Implement edge-case handling for invalid circuits and out-of-range values in src/services/simulation/circuitGuards.ts
-- [ ] T036 [P] Add responsive refinements for mobile lesson and challenge layouts in src/styles/responsive.css
-- [ ] T037 Improve accessibility labels and keyboard interactions in src/components/circuit/CircuitWorkspace.tsx
-- [ ] T038 Update onboarding and run instructions for local and static deployment in README.md
-- [ ] T039 Validate quickstart flow and record manual verification notes in specs/001-electronics-learning-game/quickstart.md
+- [X] T035 [P] Implement edge-case handling for invalid circuits and out-of-range values in src/services/simulation/circuitGuards.ts
+- [X] T036 [P] Add responsive refinements for mobile lesson and challenge layouts in src/styles/responsive.css
+- [X] T037 Improve accessibility labels and keyboard interactions in src/components/circuit/CircuitWorkspace.tsx
+- [X] T038 Update onboarding and run instructions for local and static deployment in README.md
+- [X] T039 Validate quickstart flow and record manual verification notes in specs/001-electronics-learning-game/quickstart.md
 
 ---
 

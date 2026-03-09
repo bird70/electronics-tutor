@@ -1,0 +1,141 @@
+/* Responsive refinements for mobile and tablet layouts */
+
+/* Base: mobile-first */
+@media (max-width: 768px) {
+  .app-shell {
+    flex-direction: column;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+
+  .nav-links {
+    gap: var(--space-2);
+  }
+
+  .main-content {
+    padding: var(--space-3);
+  }
+
+  /* Lesson player: stack palette above canvas */
+  .lesson-player__workspace {
+    flex-direction: column;
+  }
+
+  .lesson-player__palette {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .lesson-player__canvas {
+    width: 100%;
+  }
+
+  /* Challenge player: same stacking */
+  .challenge-player__workspace {
+    flex-direction: column;
+  }
+
+  .challenge-player__palette {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  /* Circuit workspace SVG scales down */
+  .circuit-workspace__canvas {
+    max-height: 300px;
+  }
+
+  /* Component palette: horizontal scroll on mobile */
+  .component-palette__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+
+  .component-palette__item {
+    font-size: 0.85rem;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  /* Challenge board: single column */
+  .challenge-board__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Plan selector: single column */
+  .plan-selector__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Concept check: full width options */
+  .concept-check__options {
+    flex-direction: column;
+  }
+
+  .concept-check__option {
+    width: 100%;
+  }
+
+  /* Stats strip: wrap */
+  .home-stats {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .stat-card {
+    min-width: 100px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .lesson-player__workspace {
+    flex-direction: row;
+  }
+
+  .lesson-player__palette {
+    width: 250px;
+    flex-shrink: 0;
+  }
+
+  .challenge-board__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plan-selector__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .lesson-player__workspace {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .lesson-player__palette {
+    width: 280px;
+    flex-shrink: 0;
+  }
+
+  .lesson-player__canvas {
+    flex: 1;
+  }
+
+  .challenge-board__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+
+  .plan-selector__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+}

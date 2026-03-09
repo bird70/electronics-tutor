@@ -46,7 +46,11 @@ Expected result:
 npm run preview
 ```
 
-## Manual Validation Checklist
+## Build Verification Notes (automated)
+- TypeScript compilation: ✓ PASS (`tsc --noEmit` — zero errors)
+- Production build: ✓ PASS (`npm run build` — 74 modules, dist output: 269 kB JS + 2.7 kB CSS gzip)
+- Node.js version: 18.20.8 (warnings from react-router about 20+, non-blocking)
+- npm install: 287 packages, 0 vulnerabilities
 - Complete one beginner lesson from start to finish.
 - Modify a resistor value and verify explanation updates.
 - Finish one challenge and confirm next level unlock.
