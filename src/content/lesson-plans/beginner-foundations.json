@@ -1,0 +1,8 @@
+{
+  "id": "beginner-foundations",
+  "title": "Electronics Foundations",
+  "goal": "Learn the basic concepts of voltage, current, resistance, and how they relate through Ohm's Law by building real circuits.",
+  "difficultyBand": "beginner",
+  "lessonIds": ["basics-series-circuit"],
+  "estimatedMinutes": 20
+}

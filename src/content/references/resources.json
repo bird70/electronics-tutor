@@ -1,0 +1,34 @@
+[
+  {
+    "id": "ref-ohms-law-article",
+    "title": "Ohm's Law Explained Simply",
+    "url": "https://www.electronics-tutorials.ws/dccircuits/dcp_2.html",
+    "type": "article",
+    "conceptTags": ["voltage", "current", "resistance"],
+    "readingLevel": "beginner"
+  },
+  {
+    "id": "ref-series-circuits",
+    "title": "Series Circuits and Kirchhoff's Voltage Law",
+    "url": "https://www.electronics-tutorials.ws/dccircuits/dcp_4.html",
+    "type": "article",
+    "conceptTags": ["voltage", "resistance"],
+    "readingLevel": "beginner"
+  },
+  {
+    "id": "ref-power-basics",
+    "title": "Electrical Power in Circuits",
+    "url": "https://www.electronics-tutorials.ws/dccircuits/dcp_5.html",
+    "type": "article",
+    "conceptTags": ["power", "voltage", "current"],
+    "readingLevel": "beginner"
+  },
+  {
+    "id": "ref-resistor-color-codes",
+    "title": "Reading Resistor Color Codes",
+    "url": "https://www.electronics-tutorials.ws/resistor/res_2.html",
+    "type": "article",
+    "conceptTags": ["resistance"],
+    "readingLevel": "beginner"
+  }
+]

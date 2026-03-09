@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://electronics-tutor.local/contracts/progress-profile.schema.json",
+  "title": "Progress Profile",
+  "type": "object",
+  "required": [
+    "profileVersion",
+    "completedLessonIds",
+    "completedChallengeIds",
+    "unlockedLevels",
+    "updatedAt"
+  ],
+  "properties": {
+    "profileVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "activePlanId": {
+      "type": "string"
+    },
+    "completedLessonIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "completedChallengeIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "unlockedLevels": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "uniqueItems": true
+    },
+    "lastSessionState": {
+      "type": "object"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

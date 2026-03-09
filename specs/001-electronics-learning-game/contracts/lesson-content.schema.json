@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://electronics-tutor.local/contracts/lesson-content.schema.json",
+  "title": "Lesson Content",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "conceptTags",
+    "learningObjectives",
+    "introText",
+    "componentPalette",
+    "steps"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "conceptTags": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["voltage", "current", "resistance", "resistivity", "power"]
+      }
+    },
+    "learningObjectives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "introText": {
+      "type": "string",
+      "minLength": 1
+    },
+    "componentPalette": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "instructionText", "targetCondition", "feedbackOnSuccess", "feedbackOnFailure"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "instructionText": {
+            "type": "string",
+            "minLength": 1
+          },
+          "targetCondition": {
+            "type": "object",
+            "required": ["metric", "operator", "value"],
+            "properties": {
+              "metric": {
+                "type": "string",
+                "enum": ["voltage", "current", "resistance", "power", "validCircuit"]
+              },
+              "operator": {
+                "type": "string",
+                "enum": ["eq", "neq", "lt", "lte", "gt", "gte"]
+              },
+              "value": {
+                "type": ["number", "boolean"]
+              }
+            },
+            "additionalProperties": false
+          },
+          "feedbackOnSuccess": {
+            "type": "string",
+            "minLength": 1
+          },
+          "feedbackOnFailure": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "referenceResourceIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "additionalProperties": false
+}

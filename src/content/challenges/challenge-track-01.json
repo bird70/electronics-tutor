@@ -1,0 +1,67 @@
+[
+  {
+    "id": "challenge-series-basics",
+    "title": "Light the Path",
+    "level": 1,
+    "objectiveText": "Build a series circuit with a 9V source that produces exactly 30 mA of current. You'll need to figure out the right resistance!",
+    "allowedComponents": ["dc-source", "resistor", "wire"],
+    "winConditions": [
+      { "metric": "validCircuit", "operator": "eq", "value": true },
+      { "metric": "voltage", "operator": "eq", "value": 9 },
+      { "metric": "current", "operator": "gte", "value": 0.029 },
+      { "metric": "current", "operator": "lte", "value": 0.031 }
+    ],
+    "scoringRules": {
+      "maxScore": 100,
+      "timeBonusEnabled": true,
+      "penaltyPerHint": 15
+    },
+    "reward": {
+      "title": "Circuit Apprentice",
+      "description": "You completed your first challenge! Ohm's Law is your friend."
+    }
+  },
+  {
+    "id": "challenge-voltage-divider",
+    "title": "Split the Voltage",
+    "level": 2,
+    "objectiveText": "Create a circuit where the total resistance is at least 500Ω and the total power consumption stays below 0.5W. Use a 12V source.",
+    "allowedComponents": ["dc-source", "resistor", "wire"],
+    "winConditions": [
+      { "metric": "validCircuit", "operator": "eq", "value": true },
+      { "metric": "voltage", "operator": "eq", "value": 12 },
+      { "metric": "resistance", "operator": "gte", "value": 500 },
+      { "metric": "power", "operator": "lt", "value": 0.5 }
+    ],
+    "scoringRules": {
+      "maxScore": 150,
+      "timeBonusEnabled": true,
+      "penaltyPerHint": 20
+    },
+    "reward": {
+      "title": "Power Manager",
+      "description": "You've learned to balance voltage, resistance, and power!"
+    }
+  },
+  {
+    "id": "challenge-high-resistance",
+    "title": "Current Limiter",
+    "level": 3,
+    "objectiveText": "Design a circuit with a 24V source where the current is less than 10 mA. Think about what resistance you need!",
+    "allowedComponents": ["dc-source", "resistor", "wire"],
+    "winConditions": [
+      { "metric": "validCircuit", "operator": "eq", "value": true },
+      { "metric": "voltage", "operator": "eq", "value": 24 },
+      { "metric": "current", "operator": "lt", "value": 0.01 }
+    ],
+    "scoringRules": {
+      "maxScore": 200,
+      "timeBonusEnabled": true,
+      "penaltyPerHint": 25
+    },
+    "reward": {
+      "title": "Safety Engineer",
+      "description": "You understand how to limit current — a critical safety skill in electronics!"
+    }
+  }
+]
