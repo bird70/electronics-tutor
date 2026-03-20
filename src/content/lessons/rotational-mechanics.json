@@ -1,0 +1,67 @@
+{
+  "id": "rotational-mechanics",
+  "title": "Rotational Mechanics",
+  "conceptTags": ["rotation"],
+  "learningObjectives": [
+    "Apply the rotational analogues of Newton's Second Law (τ = Iα)",
+    "Calculate torque and moment of inertia for common shapes",
+    "Use the law of conservation of angular momentum"
+  ],
+  "introText": "Rotational mechanics is the rotational analogue of translational mechanics. Every linear quantity has a rotational counterpart: displacement→angle, velocity→angular velocity, force→torque, mass→moment of inertia.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "step-1-quantities",
+      "heading": "Rotational Quantities",
+      "body": "Linear → Rotational analogues:\n\n• Displacement (s, m) → Angle (θ, rad)\n• Velocity (v, m/s) → Angular velocity (ω, rad/s)\n• Acceleration (a, m/s²) → Angular acceleration (α, rad/s²)\n• Mass (m, kg) → Moment of inertia (I, kg·m²)\n• Force (F, N) → Torque (τ, N·m)\n• Momentum (p) → Angular momentum (L, kg·m²/s)\n\nThe connection between linear and rotational: v = rω, a_t = rα, s = rθ.",
+      "deepDive": "The rotational SUVAT equations are identical in form to the linear ones with θ, ω, and α replacing s, v, and a: ω = ω₀ + αt; θ = ω₀t + ½αt²; ω² = ω₀² + 2αθ; θ = ½(ω₀ + ω)t."
+    },
+    {
+      "type": "text",
+      "id": "step-2-torque",
+      "heading": "Torque and Moment of Inertia",
+      "body": "**Torque: τ = F × d⊥ = Fr sin θ**\n\nTorque is the rotational analogue of force. The lever arm d⊥ is the perpendicular distance from the pivot to the line of action of the force.\n\n**Newton's Second Law for rotation: τ_net = Iα**\n\nMoment of inertia for common shapes (axis through centre unless noted):\n• Solid cylinder: I = ½MR²\n• Hollow cylinder (ring): I = MR²\n• Solid sphere: I = ⅖MR²\n• Rod about its centre: I = (1/12)ML²\n• Rod about its end: I = (1/3)ML²"
+    },
+    {
+      "type": "text",
+      "id": "step-3-angular-momentum",
+      "heading": "Angular Momentum and Its Conservation",
+      "body": "**Angular momentum: L = Iω**\n\n**In a closed system (no external net torque), angular momentum is conserved:**\nI₁ω₁ = I₂ω₂\n\nA figure skater spins faster when arms are pulled in because I decreases, so ω must increase to keep L constant.\n\nExample: I₁ = 4.0 kg·m², ω₁ = 1.5 rad/s → I₂ = 1.6 kg·m²\nω₂ = I₁ω₁/I₂ = (4.0 × 1.5)/1.6 = 3.75 rad/s",
+      "deepDive": "The parallel axis theorem: I = I_cm + Md², where d is the distance from the centre-of-mass axis to the new axis. This lets you compute I for any parallel axis."
+    },
+    {
+      "type": "quiz",
+      "id": "step-4-quiz1",
+      "questionText": "A torque of 12 N·m is applied to a flywheel with moment of inertia I = 3 kg·m². What angular acceleration results?",
+      "options": ["4 rad/s²", "36 rad/s²", "0.25 rad/s²", "9 rad/s²"],
+      "correctIndex": 0,
+      "explanation": "τ = Iα → α = τ/I = 12/3 = 4 rad/s²."
+    },
+    {
+      "type": "quiz",
+      "id": "step-5-quiz2",
+      "questionText": "A solid cylinder of mass 2 kg and radius 0.3 m rotates at 6 rad/s. What is its angular momentum?",
+      "options": ["1.08 kg·m²/s", "0.54 kg·m²/s", "3.6 kg·m²/s", "0.18 kg·m²/s"],
+      "correctIndex": 1,
+      "explanation": "I = ½MR² = ½ × 2 × 0.3² = ½ × 2 × 0.09 = 0.09 kg·m². L = Iω = 0.09 × 6 = 0.54 kg·m²/s."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "a1",
+        "questionText": "A figure skater with I = 5 kg·m² spins at 2 rad/s and pulls in arms to reduce I to 2 kg·m². What is the new angular velocity?",
+        "options": ["5 rad/s", "4 rad/s", "0.8 rad/s", "10 rad/s"],
+        "correctIndex": 0,
+        "explanation": "Conservation of angular momentum: I₁ω₁ = I₂ω₂ → ω₂ = (5 × 2)/2 = 5 rad/s."
+      },
+      {
+        "id": "a2",
+        "questionText": "A rod of mass 3 kg and length 2 m rotates about its end. What is its moment of inertia?",
+        "options": ["4 kg·m²", "1 kg·m²", "12 kg·m²", "2 kg·m²"],
+        "correctIndex": 0,
+        "explanation": "I = (1/3)ML² = (1/3) × 3 × 4 = 4 kg·m²."
+      }
+    ]
+  }
+}

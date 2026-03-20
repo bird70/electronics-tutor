@@ -1,0 +1,73 @@
+{
+  "id": "momentum-impulse",
+  "title": "Momentum and Impulse",
+  "conceptTags": ["momentum"],
+  "learningObjectives": [
+    "Define linear momentum and impulse",
+    "Apply the impulse-momentum theorem",
+    "Use conservation of momentum to solve collision problems",
+    "Distinguish between elastic and inelastic collisions"
+  ],
+  "introText": "Momentum is the 'quantity of motion' — it combines both mass and velocity. Conservation of momentum is one of the most powerful principles in physics: the total momentum of a closed system never changes.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "step-1-momentum",
+      "heading": "Linear Momentum",
+      "body": "**Momentum (p) = mv**\n\n• p = momentum (kg·m/s)\n• m = mass (kg)\n• v = velocity (m/s)\n\nMomentum is a vector — direction matters. In 1D, a negative momentum means the object moves in the negative direction.\n\nThe SI unit kg·m/s is equivalent to N·s (Newton-second).",
+      "deepDive": "Momentum appears in Newton's Second Law in its most general form: F = dp/dt (force equals rate of change of momentum). For constant mass, F = m(dv/dt) = ma, which is the familiar form."
+    },
+    {
+      "type": "text",
+      "id": "step-2-impulse",
+      "heading": "Impulse",
+      "body": "**Impulse (J) = FΔt = Δp = mv − mu**\n\nImpulse is the change in momentum caused by a force over a time interval. It equals the area under a force-time graph.\n\n**Impulse-momentum theorem:** J = Δp\n\nExample: A cricket ball (mass 0.16 kg) is hit from rest to 30 m/s.\nImpulse = Δp = 0.16 × 30 − 0 = 4.8 N·s\n\nIf contact time = 0.002 s:\nForce = J/Δt = 4.8/0.002 = 2400 N",
+      "deepDive": "Crumple zones in cars increase the collision time Δt, reducing the average force for the same impulse/change in momentum. Air bags do the same for the occupants. This is why Δt matters so much in safety engineering."
+    },
+    {
+      "type": "text",
+      "id": "step-3-conservation",
+      "heading": "Conservation of Momentum",
+      "body": "**In a closed system (no external net forces), total momentum is conserved:**\n\np_before = p_after\nm₁u₁ + m₂u₂ = m₁v₁ + m₂v₂\n\n**Elastic collision:** KE is also conserved.\n**Inelastic collision:** KE is not conserved (converted to heat, sound, etc.).\n**Perfectly inelastic:** Objects stick together after collision, maximum KE loss.\n\nExample: A 3 kg cart at 4 m/s collides with a stationary 1 kg cart and they stick together.\nBefore: p = 3 × 4 + 0 = 12 kg·m/s\nAfter: (3 + 1)v = 12 → v = 3 m/s"
+    },
+    {
+      "type": "quiz",
+      "id": "step-4-quiz1",
+      "questionText": "A 0.5 kg ball moving at 6 m/s east hits a stationary 1.5 kg ball. They stick together. What is their combined velocity after collision?",
+      "options": ["1.5 m/s east", "3 m/s east", "2 m/s east", "6 m/s east"],
+      "correctIndex": 0,
+      "explanation": "Conservation: (0.5)(6) + 0 = (0.5 + 1.5)v → 3 = 2v → v = 1.5 m/s east."
+    },
+    {
+      "type": "quiz",
+      "id": "step-5-quiz2",
+      "questionText": "A 70 kg person jumps backward off a 200 kg stationary boat at 2 m/s. At what speed does the boat move forward?",
+      "options": ["0.7 m/s", "2 m/s", "0.57 m/s", "1.4 m/s"],
+      "correctIndex": 0,
+      "explanation": "Initial p = 0. So 70(−2) + 200v = 0 → v = 140/200 = 0.7 m/s forward."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "a1",
+        "questionText": "A 1000 kg car travelling at 20 m/s is brought to rest in 4 s by brakes. What average braking force acts?",
+        "options": ["200 N", "5000 N", "80000 N", "4000 N"],
+        "correctIndex": 1,
+        "explanation": "Impulse = Δp = 0 − (1000 × 20) = −20000 N·s. F = Δp/Δt = 20000/4 = 5000 N."
+      },
+      {
+        "id": "a2",
+        "questionText": "In a perfectly elastic head-on collision between two equal masses where one is initially stationary, what happens?",
+        "options": [
+          "Both move at half the initial speed",
+          "The moving one stops and the stationary one moves at the original speed",
+          "Both stop",
+          "The moving one bounces back at the same speed"
+        ],
+        "correctIndex": 1,
+        "explanation": "For equal masses in a perfectly elastic collision, they swap velocities. The moving mass stops and the stationary one moves at the original speed."
+      }
+    ]
+  }
+}

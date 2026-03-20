@@ -15,18 +15,8 @@ export function validateProgressProfile(
     errors.push('completedLessonIds must be an array');
   }
 
-  if (!Array.isArray(profile.completedChallengeIds)) {
-    errors.push('completedChallengeIds must be an array');
-  }
-
-  if (!Array.isArray(profile.unlockedLevels)) {
-    errors.push('unlockedLevels must be an array');
-  } else {
-    for (const level of profile.unlockedLevels) {
-      if (!Number.isInteger(level) || level < 1) {
-        errors.push(`unlockedLevels: each entry must be an integer >= 1, got ${level}`);
-      }
-    }
+  if (!Array.isArray(profile.completedExamIds)) {
+    errors.push('completedExamIds must be an array');
   }
 
   if (!profile.updatedAt) {

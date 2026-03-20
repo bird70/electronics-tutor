@@ -1,0 +1,75 @@
+{
+  "id": "intro-kinematics",
+  "title": "Introduction to Kinematics",
+  "conceptTags": ["kinematics"],
+  "learningObjectives": [
+    "Define displacement, velocity, and acceleration",
+    "Distinguish between scalar and vector quantities",
+    "Apply the SUVAT equations to solve 1D problems"
+  ],
+  "introText": "Kinematics describes how objects move — without worrying about what causes the motion. In this lesson you will meet the fundamental quantities of motion and the SUVAT equations that link them.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "step-1-quantities",
+      "heading": "Quantities of Motion",
+      "body": "Every moving object can be described by five kinematic quantities:\n\n• **Displacement (s)** — how far an object has moved from its starting point, in a specific direction (metres, m). This is a vector.\n• **Initial velocity (u)** — the velocity at the start of the time interval (m/s). Vector.\n• **Final velocity (v)** — the velocity at the end of the time interval (m/s). Vector.\n• **Acceleration (a)** — the rate of change of velocity (m/s²). Vector.\n• **Time (t)** — the duration of the interval (seconds, s). Scalar.\n\nThese five quantities are connected by the SUVAT equations. If you know three of them, you can always find the other two.",
+      "deepDive": "Scalars have magnitude only (e.g. speed, distance, time). Vectors have both magnitude and direction (e.g. velocity, displacement, acceleration). In 1D problems we indicate direction with a positive or negative sign. For example, if upward is positive, a = −9.81 m/s² means the acceleration due to gravity acts downward."
+    },
+    {
+      "type": "text",
+      "id": "step-2-suvat",
+      "heading": "The SUVAT Equations",
+      "body": "The four SUVAT equations (assuming constant acceleration) are:\n\n1. **v = u + at**\n2. **s = ut + ½at²**\n3. **v² = u² + 2as**\n4. **s = ½(u + v)t**\n\nEach equation contains four of the five variables. You choose the equation that contains your three knowns and the one unknown you need.",
+      "deepDive": "These equations only apply when acceleration is **constant** (uniform acceleration). For variable acceleration you need calculus: a = dv/dt and v = ds/dt. At NCEA Level 3, all kinematics problems assume constant acceleration unless otherwise stated."
+    },
+    {
+      "type": "interactive",
+      "id": "step-3-solver",
+      "heading": "SUVAT Solver",
+      "instructionText": "Enter any three of the five values below. The solver will compute the remaining two using the SUVAT equations. Try: u = 0, a = 2, t = 5.",
+      "simulationKey": "kinematics-solver"
+    },
+    {
+      "type": "quiz",
+      "id": "step-4-quiz1",
+      "questionText": "A car accelerates uniformly from rest (u = 0) to 20 m/s in 8 s. What is the acceleration?",
+      "options": ["0.4 m/s²", "2.5 m/s²", "160 m/s²", "10 m/s²"],
+      "correctIndex": 1,
+      "explanation": "Using v = u + at: a = (v − u)/t = (20 − 0)/8 = 2.5 m/s²."
+    },
+    {
+      "type": "quiz",
+      "id": "step-5-quiz2",
+      "questionText": "Using the same car above (u=0, v=20 m/s, a=2.5 m/s², t=8 s), what is the displacement?",
+      "options": ["40 m", "80 m", "160 m", "20 m"],
+      "correctIndex": 1,
+      "explanation": "Using s = ½(u + v)t = ½ × 20 × 8 = 80 m. Or: s = ut + ½at² = 0 + ½ × 2.5 × 64 = 80 m."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "a1",
+        "questionText": "A ball is thrown upward at 15 m/s. Taking upward as positive and g = 9.81 m/s², what is the maximum height reached?",
+        "options": ["7.5 m", "11.5 m", "22.9 m", "1.53 m"],
+        "correctIndex": 1,
+        "explanation": "At max height v = 0. Using v² = u² + 2as: 0 = 15² + 2(−9.81)s → s = 225/19.62 ≈ 11.5 m."
+      },
+      {
+        "id": "a2",
+        "questionText": "Which SUVAT equation would you use if you know u, a, and s, and want to find v?",
+        "options": ["v = u + at", "s = ut + ½at²", "v² = u² + 2as", "s = ½(u + v)t"],
+        "correctIndex": 2,
+        "explanation": "v² = u² + 2as contains exactly u, a, s, and v — so it's the right choice."
+      },
+      {
+        "id": "a3",
+        "questionText": "A cyclist decelerates uniformly from 12 m/s to rest over 30 m. What is the deceleration magnitude?",
+        "options": ["2.4 m/s²", "4.8 m/s²", "0.4 m/s²", "2.0 m/s²"],
+        "correctIndex": 0,
+        "explanation": "v² = u² + 2as → 0 = 144 + 2a(30) → a = −144/60 = −2.4 m/s². Magnitude = 2.4 m/s²."
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "id": "circular-motion",
+  "title": "Circular Motion",
+  "conceptTags": ["circular-motion"],
+  "learningObjectives": [
+    "Define angular velocity, period, and frequency for circular motion",
+    "Explain why objects in circular motion require a centripetal force",
+    "Calculate centripetal acceleration and centripetal force",
+    "Identify the force providing centripetal acceleration in real situations"
+  ],
+  "introText": "When an object moves in a circle at constant speed, its velocity is constantly changing direction — meaning it is accelerating. This acceleration always points toward the centre of the circle and is called centripetal acceleration.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "step-1-quantities",
+      "heading": "Circular Motion Quantities",
+      "body": "For an object moving in a circle of radius r with constant speed v:\n\n• **Period (T)** — time for one complete revolution (seconds)\n• **Frequency (f)** — revolutions per second (Hz); f = 1/T\n• **Angular velocity (ω)** — angle swept per second (rad/s); ω = 2π/T = 2πf\n• **Speed** — v = rω = 2πr/T\n\nAngular velocity ω connects the 'circular' quantities to linear speed. At the same ω, a larger radius means a faster linear speed.",
+      "deepDive": "The radian is a dimensionless unit. One full revolution = 2π radians ≈ 6.28 rad. So if an object completes 3 revolutions per second, ω = 3 × 2π ≈ 18.85 rad/s."
+    },
+    {
+      "type": "text",
+      "id": "step-2-centripetal",
+      "heading": "Centripetal Acceleration and Force",
+      "body": "Because velocity is always tangent to the circle and the direction keeps changing, there must be a centripetal (center-seeking) acceleration:\n\n**a_c = v²/r = ω²r**\n\nBy Newton's Second Law, a net force must cause this acceleration:\n\n**F_c = mv²/r = mω²r**\n\nThis force always points toward the centre of the circle.\n\n**Important:** Centripetal force is not a new type of force — it is the net inward force **provided by** real forces such as:\n• Tension in a string (ball on a string)\n• Gravity (satellite orbit)\n• Normal force (car on a banked road)\n• Friction (car turning on a flat road)"
+    },
+    {
+      "type": "interactive",
+      "id": "step-3-sim",
+      "heading": "Circular Motion Simulator",
+      "instructionText": "Adjust radius, speed, and mass. Observe how centripetal acceleration and force change. Note the velocity (tangent) and acceleration (inward) arrows.",
+      "simulationKey": "circular-motion",
+      "deepDive": "In vertical circular motion (like a roller coaster loop), the centripetal force requirement must be met at every point. At the top of the loop, gravity + normal force both point inward, so the minimum speed (when N = 0) satisfies mg = mv²/r → v_min = √(gr)."
+    },
+    {
+      "type": "quiz",
+      "id": "step-4-quiz1",
+      "questionText": "A 0.2 kg ball on a 0.5 m string moves in a horizontal circle at 4 m/s. What is the tension in the string?",
+      "options": ["1.6 N", "3.2 N", "6.4 N", "0.8 N"],
+      "correctIndex": 2,
+      "explanation": "F_c = mv²/r = 0.2 × 16 / 0.5 = 6.4 N. The tension provides the centripetal force."
+    },
+    {
+      "type": "quiz",
+      "id": "step-5-quiz2",
+      "questionText": "A satellite orbits Earth at radius r with period T. Which expression gives its orbital speed?",
+      "options": ["v = 2πrT", "v = 2πr/T", "v = T/(2πr)", "v = r/(2πT)"],
+      "correctIndex": 1,
+      "explanation": "Speed = circumference / period = 2πr/T."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "a1",
+        "questionText": "A car (mass 1200 kg) travels at 15 m/s around a flat circular bend of radius 45 m. What friction force is required?",
+        "options": ["400 N", "6000 N", "18000 N", "800 N"],
+        "correctIndex": 1,
+        "explanation": "F_c = mv²/r = 1200 × 225 / 45 = 6000 N. Friction provides the centripetal force."
+      },
+      {
+        "id": "a2",
+        "questionText": "If the radius of circular motion is doubled while the speed is kept the same, what happens to the centripetal acceleration?",
+        "options": ["It doubles", "It halves", "It quadruples", "It stays the same"],
+        "correctIndex": 1,
+        "explanation": "a_c = v²/r. Doubling r (with v constant) halves a_c."
+      }
+    ]
+  }
+}

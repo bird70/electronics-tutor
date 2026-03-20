@@ -1,11 +1,11 @@
-import type { Lesson, LessonPlan, CircuitChallenge, ReferenceResource } from '@/domain/learning/types';
+import type { Lesson, LessonPlan, ExamPaper, ReferenceResource } from '@/domain/learning/types';
 
 // Content is loaded from JSON modules at build time via Vite's JSON import.
 // Each loader returns a typed array so consuming code doesn't handle raw JSON.
 
 let lessonCache: Lesson[] | null = null;
 let planCache: LessonPlan[] | null = null;
-let challengeCache: CircuitChallenge[] | null = null;
+let examCache: ExamPaper[] | null = null;
 let referenceCache: ReferenceResource[] | null = null;
 
 export async function loadLessons(): Promise<Lesson[]> {
@@ -22,11 +22,11 @@ export async function loadLessonPlans(): Promise<LessonPlan[]> {
   return planCache;
 }
 
-export async function loadChallenges(): Promise<CircuitChallenge[]> {
-  if (challengeCache) return challengeCache;
-  const modules = import.meta.glob<{ default: CircuitChallenge[] }>('/src/content/challenges/*.json', { eager: true });
-  challengeCache = Object.values(modules).flatMap((m) => m.default);
-  return challengeCache;
+export async function loadExamPapers(): Promise<ExamPaper[]> {
+  if (examCache) return examCache;
+  const modules = import.meta.glob<{ default: ExamPaper }>('/src/content/exams/*.json', { eager: true });
+  examCache = Object.values(modules).map((m) => m.default);
+  return examCache;
 }
 
 export async function loadReferences(): Promise<ReferenceResource[]> {
@@ -41,7 +41,7 @@ export async function getLessonById(id: string): Promise<Lesson | undefined> {
   return lessons.find((l) => l.id === id);
 }
 
-export async function getChallengeById(id: string): Promise<CircuitChallenge | undefined> {
-  const challenges = await loadChallenges();
-  return challenges.find((c) => c.id === id);
+export async function getExamById(id: string): Promise<ExamPaper | undefined> {
+  const exams = await loadExamPapers();
+  return exams.find((e) => e.id === id);
 }

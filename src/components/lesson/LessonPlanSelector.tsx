@@ -8,6 +8,12 @@ interface LessonPlanSelectorProps {
   onSelect: (plan: LessonPlan) => void;
 }
 
+const BAND_EMOJI: Record<DifficultyBand, string> = {
+  beginner: '🟢',
+  intermediate: '🟡',
+  advanced: '🔴',
+};
+
 /**
  * Grid of available lesson plans with progress indicators.
  * User clicks to activate a plan.
@@ -32,8 +38,8 @@ export function LessonPlanSelector({ onSelect }: LessonPlanSelectorProps) {
 
   return (
     <div className="plan-selector">
-      <h2>📚 Learning Paths</h2>
-      <div className="plan-selector__filters" role="group" aria-label="Filter learning paths by level">
+      <h2>📚 Lesson Plans</h2>
+      <div className="plan-selector__filters" role="group" aria-label="Filter lesson plans by level">
         {difficulties.map((value) => (
           <button
             key={value}
@@ -41,7 +47,9 @@ export function LessonPlanSelector({ onSelect }: LessonPlanSelectorProps) {
             aria-pressed={filter === value}
             onClick={() => setFilter(value)}
           >
-            {value === 'all' ? 'All' : value.charAt(0).toUpperCase() + value.slice(1)}
+            {value === 'all'
+              ? 'All'
+              : `${BAND_EMOJI[value as DifficultyBand]} ${value.charAt(0).toUpperCase() + value.slice(1)}`}
           </button>
         ))}
       </div>
@@ -58,7 +66,9 @@ export function LessonPlanSelector({ onSelect }: LessonPlanSelectorProps) {
               tabIndex={0}
               onKeyDown={(e) => e.key === 'Enter' && onSelect(plan)}
             >
-              <div className="plan-card__band">{plan.difficultyBand}</div>
+              <div className="plan-card__band">
+                {BAND_EMOJI[plan.difficultyBand]} {plan.difficultyBand}
+              </div>
               <h3 className="plan-card__title">{plan.title}</h3>
               <p className="plan-card__goal">{plan.goal}</p>
               <div className="plan-card__meta">
@@ -66,10 +76,12 @@ export function LessonPlanSelector({ onSelect }: LessonPlanSelectorProps) {
                 <span>⏱ ~{plan.estimatedMinutes} min</span>
               </div>
               <div className="plan-card__progress">
-                <div
-                  className="plan-card__progress-bar"
-                  style={{ width: `${pct}%` }}
-                />
+                <div className="plan-card__progress-bar-track">
+                  <div
+                    className="plan-card__progress-bar"
+                    style={{ width: `${pct}%` }}
+                  />
+                </div>
                 <span>{pct}%</span>
               </div>
             </div>

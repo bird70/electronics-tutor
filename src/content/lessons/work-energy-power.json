@@ -1,0 +1,74 @@
+{
+  "id": "work-energy-power",
+  "title": "Work, Energy and Power",
+  "conceptTags": ["energy"],
+  "learningObjectives": [
+    "Calculate work done by a constant force",
+    "Apply the work-energy theorem",
+    "Use the law of conservation of energy to solve problems",
+    "Calculate power"
+  ],
+  "introText": "Energy is the capacity to do work, and work is energy transferred by a force. Understanding these concepts — along with conservation of energy — lets you solve problems that would be very hard with kinematics alone.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "step-1-work",
+      "heading": "Work Done by a Force",
+      "body": "**Work (W) = F × d × cos θ**\n\nWhere:\n• F = magnitude of force (N)\n• d = displacement (m)\n• θ = angle between force and displacement\n\nWork is measured in Joules (J = N·m). Work is positive when force and displacement are in the same direction, negative when opposite, and zero when perpendicular (θ = 90°).\n\nExample: You push a 10 kg box 5 m along a floor with a horizontal force of 40 N.\nW = 40 × 5 × cos 0° = 200 J",
+      "deepDive": "The dot product W = **F** · **d** = Fd cos θ is the mathematical definition of work for constant forces. For variable forces, you must integrate: W = ∫F·ds. This is important at university level but not required at NCEA Level 3."
+    },
+    {
+      "type": "text",
+      "id": "step-2-kinetic-energy",
+      "heading": "Kinetic and Potential Energy",
+      "body": "**Kinetic Energy (KE) = ½mv²**\n\nAny moving object with mass m and speed v has kinetic energy.\n\n**Gravitational Potential Energy (GPE) = mgh**\n\nAn object of mass m at height h above a reference level (g = 9.81 m/s²).\n\n**Work-Energy Theorem:**\nNet work done on an object = change in kinetic energy\nW_net = ΔKE = ½mv² − ½mu²\n\nThis is incredibly powerful — it converts force/displacement problems directly to energy.",
+      "deepDive": "Elastic potential energy stored in a spring: EPE = ½kx², where k is the spring constant (N/m) and x is the extension from natural length. This appears in SHM topics."
+    },
+    {
+      "type": "text",
+      "id": "step-3-conservation",
+      "heading": "Conservation of Energy",
+      "body": "**In a closed system with only conservative forces, total mechanical energy is constant:**\n\nKE + GPE = constant\n½mv² + mgh = constant\n\nThis means: energy at point A = energy at point B\n½mv_A² + mgh_A = ½mv_B² + mgh_B\n\nWhen friction is present, mechanical energy is **not** conserved — some is converted to thermal energy:\nW_friction = ΔKE + ΔGPE\n\nExample: A 2 kg ball is released from h = 5 m. Find its speed at the bottom.\n½mv² = mgh → v = √(2gh) = √(2 × 9.81 × 5) ≈ 9.9 m/s"
+    },
+    {
+      "type": "text",
+      "id": "step-4-power",
+      "heading": "Power",
+      "body": "**Power (P) = W/t = Fv**\n\nPower is the rate at which work is done or energy is transferred. Measured in Watts (W = J/s).\n\n• P = W/t (work divided by time)\n• P = Fv (force × velocity, useful for constant-speed motion)\n\nExample: A motor lifts a 500 kg load 10 m in 20 s.\nW = mgh = 500 × 9.81 × 10 = 49050 J\nP = W/t = 49050/20 ≈ 2450 W ≈ 2.45 kW"
+    },
+    {
+      "type": "quiz",
+      "id": "step-5-quiz1",
+      "questionText": "A 3 kg object moving at 4 m/s has what kinetic energy?",
+      "options": ["24 J", "6 J", "12 J", "48 J"],
+      "correctIndex": 0,
+      "explanation": "KE = ½mv² = ½ × 3 × 4² = ½ × 3 × 16 = 24 J."
+    },
+    {
+      "type": "quiz",
+      "id": "step-6-quiz2",
+      "questionText": "A 5 kg ball is dropped from 8 m. Ignoring air resistance, what is its speed just before hitting the ground? (g = 9.81 m/s²)",
+      "options": ["8.86 m/s", "12.5 m/s", "12.0 m/s", "9.9 m/s"],
+      "correctIndex": 1,
+      "explanation": "Using conservation: ½mv² = mgh → v = √(2gh) = √(2 × 9.81 × 8) = √156.96 ≈ 12.5 m/s."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "a1",
+        "questionText": "A 1500 W engine moves a car at a constant 30 m/s. What is the driving force?",
+        "options": ["50 N", "45000 N", "500 N", "0.05 N"],
+        "correctIndex": 0,
+        "explanation": "P = Fv → F = P/v = 1500/30 = 50 N."
+      },
+      {
+        "id": "a2",
+        "questionText": "A 10 kg box slides down a frictionless ramp of height 2 m. What is its speed at the bottom? (g = 9.81 m/s²)",
+        "options": ["6.26 m/s", "9.81 m/s", "19.62 m/s", "4.43 m/s"],
+        "correctIndex": 0,
+        "explanation": "v = √(2gh) = √(2 × 9.81 × 2) = √39.24 ≈ 6.26 m/s."
+      }
+    ]
+  }
+}

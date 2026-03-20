@@ -1,30 +1,40 @@
-import type { Lesson, LessonStep, CircuitCondition } from '@/domain/learning/types';
+import type { Lesson, LessonStep } from '@/domain/learning/types';
 
-const CONCEPT_TAGS = new Set(['voltage', 'current', 'resistance', 'resistivity', 'power']);
-const METRICS = new Set(['voltage', 'current', 'resistance', 'power', 'validCircuit']);
-const OPERATORS = new Set(['eq', 'neq', 'lt', 'lte', 'gt', 'gte']);
+const CONCEPT_TAGS = new Set([
+  'kinematics', 'dynamics', 'forces', 'energy', 'momentum',
+  'circular-motion', 'rotation', 'shm', 'projectile',
+]);
 
-function validateCondition(c: CircuitCondition, path: string): string[] {
-  const errors: string[] = [];
-  if (!METRICS.has(c.metric)) errors.push(`${path}.metric: invalid value "${c.metric}"`);
-  if (!OPERATORS.has(c.operator)) errors.push(`${path}.operator: invalid value "${c.operator}"`);
-  if (typeof c.value !== 'number' && typeof c.value !== 'boolean')
-    errors.push(`${path}.value: must be number or boolean`);
-  return errors;
-}
+const STEP_TYPES = new Set(['text', 'visualization', 'interactive', 'quiz']);
 
 function validateStep(step: LessonStep, index: number): string[] {
   const p = `steps[${index}]`;
   const errors: string[] = [];
+
   if (!step.id) errors.push(`${p}.id is required`);
-  if (!step.instructionText) errors.push(`${p}.instructionText is required`);
-  if (!step.feedbackOnSuccess) errors.push(`${p}.feedbackOnSuccess is required`);
-  if (!step.feedbackOnFailure) errors.push(`${p}.feedbackOnFailure is required`);
-  if (step.targetCondition) {
-    errors.push(...validateCondition(step.targetCondition, `${p}.targetCondition`));
-  } else {
-    errors.push(`${p}.targetCondition is required`);
+  if (!STEP_TYPES.has(step.type)) errors.push(`${p}.type: invalid value "${step.type}"`);
+
+  switch (step.type) {
+    case 'text':
+      if (!step.body) errors.push(`${p}.body is required for text steps`);
+      break;
+    case 'visualization':
+      if (!step.visualizationKey) errors.push(`${p}.visualizationKey is required`);
+      if (!step.caption) errors.push(`${p}.caption is required`);
+      break;
+    case 'interactive':
+      if (!step.simulationKey) errors.push(`${p}.simulationKey is required`);
+      if (!step.instructionText) errors.push(`${p}.instructionText is required`);
+      break;
+    case 'quiz':
+      if (!step.questionText) errors.push(`${p}.questionText is required`);
+      if (!Array.isArray(step.options) || step.options.length < 2)
+        errors.push(`${p}.options must have at least 2 items`);
+      if (typeof step.correctIndex !== 'number') errors.push(`${p}.correctIndex is required`);
+      if (!step.explanation) errors.push(`${p}.explanation is required`);
+      break;
   }
+
   return errors;
 }
 
@@ -45,10 +55,6 @@ export function validateLesson(lesson: Lesson): { valid: boolean; errors: string
 
   if (!Array.isArray(lesson.learningObjectives) || lesson.learningObjectives.length === 0) {
     errors.push('learningObjectives must contain at least one objective');
-  }
-
-  if (!Array.isArray(lesson.componentPalette) || lesson.componentPalette.length === 0) {
-    errors.push('componentPalette must contain at least one component');
   }
 
   if (!Array.isArray(lesson.steps) || lesson.steps.length === 0) {

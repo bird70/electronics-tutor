@@ -1,0 +1,68 @@
+{
+  "id": "projectile-motion",
+  "title": "Projectile Motion",
+  "conceptTags": ["kinematics", "projectile"],
+  "learningObjectives": [
+    "Resolve projectile motion into independent horizontal and vertical components",
+    "Calculate range, maximum height, and time of flight",
+    "Analyse projectiles launched from a height"
+  ],
+  "introText": "A projectile is any object given an initial velocity and then left to move freely under gravity alone. The key insight is that horizontal and vertical motions are completely independent of each other.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "step-1-components",
+      "heading": "Horizontal and Vertical Independence",
+      "body": "A projectile launched at speed u at angle θ has:\n\n**Horizontal:** v_x = u cos θ (constant — no horizontal acceleration)\n**Vertical:** v_y₀ = u sin θ, a = −g (acceleration downward)\n\nBecause these are independent you can apply SUVAT separately to each direction.\n\nThe time of flight is found from the vertical equation, then used in the horizontal equation to find range.",
+      "deepDive": "Air resistance is neglected in all NCEA Level 3 projectile problems. In reality, drag reduces both range and maximum height, and the optimal launch angle for maximum range drops below 45°."
+    },
+    {
+      "type": "text",
+      "id": "step-2-equations",
+      "heading": "Key Equations",
+      "body": "Let upward be positive, g = 9.81 m/s²:\n\n**Horizontal (constant velocity):**\n• x = v_x · t = (u cos θ) · t\n\n**Vertical (uniform acceleration −g):**\n• v_y = u sin θ − gt\n• y = (u sin θ)t − ½gt²\n• v_y² = (u sin θ)² − 2gy\n\n**Maximum height** (v_y = 0):\nt_peak = u sin θ / g\nH = (u sin θ)² / (2g)\n\n**Time of flight** (y returns to 0, level launch):\nT = 2u sin θ / g\n\n**Range** (level launch):\nR = u² sin(2θ) / g"
+    },
+    {
+      "type": "interactive",
+      "id": "step-3-sim",
+      "heading": "Projectile Simulator",
+      "instructionText": "Adjust the initial speed and launch angle. Observe how the trajectory, maximum height, and range change. Try angle = 45° for maximum range on a flat surface.",
+      "simulationKey": "projectile",
+      "deepDive": "For level launches (θ = 0°), the horizontal velocity is just u. The time of flight is determined entirely by the height from which the projectile falls: T = √(2h/g). Students often ask: if you shoot a bullet horizontally and drop an identical bullet at the same instant from the same height, which hits the ground first? They land at exactly the same time — vertical motion is independent!"
+    },
+    {
+      "type": "quiz",
+      "id": "step-4-quiz1",
+      "questionText": "A ball is launched at 20 m/s at 30° above horizontal on level ground. What is the horizontal component of its initial velocity? (cos 30° ≈ 0.866)",
+      "options": ["10 m/s", "17.3 m/s", "20 m/s", "34.6 m/s"],
+      "correctIndex": 1,
+      "explanation": "v_x = u cos θ = 20 × cos 30° = 20 × 0.866 ≈ 17.3 m/s."
+    },
+    {
+      "type": "quiz",
+      "id": "step-5-quiz2",
+      "questionText": "A projectile is launched horizontally at 15 m/s from a cliff 20 m high. How long does it take to hit the ground? (g = 9.81 m/s²)",
+      "options": ["1.33 s", "2.02 s", "3.05 s", "0.95 s"],
+      "correctIndex": 1,
+      "explanation": "Vertical: y = ½gt² → 20 = ½ × 9.81 × t² → t² = 40/9.81 → t ≈ 2.02 s."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "a1",
+        "questionText": "A ball is kicked at 25 m/s at 40° above horizontal. What is the maximum height reached? (g = 9.81 m/s², sin 40° ≈ 0.643)",
+        "options": ["13.2 m", "20.4 m", "10.1 m", "26.4 m"],
+        "correctIndex": 0,
+        "explanation": "v_y₀ = 25 × sin 40° ≈ 16.1 m/s. H = v_y₀²/(2g) = 259/19.62 ≈ 13.2 m."
+      },
+      {
+        "id": "a2",
+        "questionText": "For maximum horizontal range on a level surface (neglecting air resistance), at what angle should a projectile be launched?",
+        "options": ["30°", "60°", "45°", "90°"],
+        "correctIndex": 2,
+        "explanation": "R = u² sin(2θ)/g is maximum when sin(2θ) = 1, i.e. 2θ = 90°, so θ = 45°."
+      }
+    ]
+  }
+}

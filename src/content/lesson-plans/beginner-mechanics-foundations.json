@@ -1,0 +1,12 @@
+{
+  "id": "beginner-mechanics-foundations",
+  "title": "Mechanics Foundations",
+  "goal": "Build a solid foundation in kinematics and Newton's Laws — the core tools you need before tackling Level 3 topics.",
+  "difficultyBand": "beginner",
+  "lessonIds": [
+    "intro-kinematics",
+    "newtons-laws",
+    "work-energy-power"
+  ],
+  "estimatedMinutes": 75
+}

@@ -1,0 +1,92 @@
+{
+  "id": "ncea-l3-mechanics-practice-1",
+  "title": "NCEA Level 3 Mechanics — Practice Exam 1",
+  "standard": "AS91521 — Demonstrate understanding of mechanical systems",
+  "totalMarks": 30,
+  "timeAllowedMinutes": 45,
+  "instructions": "Answer ALL questions. Show working for all calculation questions. g = 9.81 m/s² unless otherwise stated. Give answers to 3 significant figures.",
+  "questions": [
+    {
+      "id": "q1",
+      "marks": 2,
+      "type": "mc",
+      "questionText": "A car accelerates uniformly from 5 m/s to 25 m/s in 10 s. What is its acceleration?",
+      "options": ["0.5 m/s²", "2 m/s²", "3 m/s²", "30 m/s²"],
+      "correctIndex": 1,
+      "modelAnswer": "a = (v − u)/t = (25 − 5)/10 = 2 m/s²",
+      "explanation": "Using v = u + at, rearrange for a = (v − u)/t = 20/10 = 2 m/s²."
+    },
+    {
+      "id": "q2",
+      "marks": 2,
+      "type": "mc",
+      "questionText": "A 0.3 kg ball on a 0.8 m string swings in a horizontal circle at 5 m/s. What is the centripetal force?",
+      "options": ["1.875 N", "7.5 N", "9.375 N", "3.0 N"],
+      "correctIndex": 2,
+      "modelAnswer": "F_c = mv²/r = 0.3 × 25 / 0.8 = 9.375 N",
+      "explanation": "F_c = mv²/r = 0.3 × 5² / 0.8 = 9.375 N."
+    },
+    {
+      "id": "q3",
+      "marks": 2,
+      "type": "mc",
+      "questionText": "A ball is thrown upward at 15 m/s. How long does it take to reach maximum height?",
+      "options": ["0.65 s", "1.53 s", "1.75 s", "3.06 s"],
+      "correctIndex": 1,
+      "modelAnswer": "t = v_y₀/g = 15/9.81 ≈ 1.53 s",
+      "explanation": "At max height, v = 0. Using v = u − gt → t = u/g = 15/9.81 ≈ 1.53 s."
+    },
+    {
+      "id": "q4",
+      "marks": 2,
+      "type": "mc",
+      "questionText": "Two 2 kg masses collide head-on: mass A travels at 4 m/s east, mass B at 2 m/s west. They stick together. What is the final velocity?",
+      "options": ["3 m/s east", "1 m/s east", "6 m/s east", "0 m/s"],
+      "correctIndex": 1,
+      "modelAnswer": "p_before = 2×4 + 2×(−2) = 8 − 4 = 4 kg·m/s. v = 4/4 = 1 m/s east.",
+      "explanation": "Taking east as positive: p = 2(4) + 2(−2) = 4. v = 4/(2+2) = 1 m/s east."
+    },
+    {
+      "id": "q5",
+      "marks": 2,
+      "type": "mc",
+      "questionText": "A pendulum has length 0.25 m. What is its period? (g = 9.81 m/s²)",
+      "options": ["0.50 s", "1.00 s", "1.57 s", "0.25 s"],
+      "correctIndex": 1,
+      "modelAnswer": "T = 2π√(L/g) = 2π√(0.25/9.81) ≈ 2π × 0.1596 ≈ 1.00 s",
+      "explanation": "T = 2π√(L/g) = 2π × √(0.25/9.81) ≈ 1.00 s."
+    },
+    {
+      "id": "q6",
+      "marks": 4,
+      "type": "short",
+      "questionText": "A 1200 kg car enters a roundabout of radius 30 m at 12 m/s on a flat road. (a) What centripetal acceleration does it experience? (b) What minimum friction force is required to keep it on the circular path? (c) If the road is wet and the maximum static friction is only 3600 N, what is the maximum safe speed?",
+      "modelAnswer": "(a) a_c = v²/r = 144/30 = 4.8 m/s². (b) F = ma_c = 1200 × 4.8 = 5760 N. (c) v_max = √(F_max × r / m) = √(3600 × 30 / 1200) = √90 ≈ 9.49 m/s.",
+      "explanation": "Parts (a) and (b) use F_c = mv²/r. Part (c) rearranges to v = √(Fr/m)."
+    },
+    {
+      "id": "q7",
+      "marks": 4,
+      "type": "short",
+      "questionText": "A ball is projected horizontally from the top of a 45 m cliff at 20 m/s. (a) How long does it take to hit the ground? (b) What is the horizontal range? (c) What is the ball's speed just before impact?",
+      "modelAnswer": "(a) t = √(2h/g) = √(90/9.81) ≈ 3.03 s. (b) x = v_x × t = 20 × 3.03 ≈ 60.6 m. (c) v_y = gt = 9.81 × 3.03 ≈ 29.7 m/s. Speed = √(20² + 29.7²) = √(400 + 882) ≈ 35.8 m/s.",
+      "explanation": "Horizontal: constant velocity. Vertical: free fall from rest."
+    },
+    {
+      "id": "q8",
+      "marks": 6,
+      "type": "long",
+      "questionText": "A 50 kg figure skater is spinning with arms outstretched at 2 revolutions per second. Her moment of inertia with arms out is 3.5 kg·m². She then pulls her arms in, reducing her moment of inertia to 1.0 kg·m². (a) Calculate her initial angular velocity in rad/s. (b) Calculate her angular velocity after pulling her arms in using conservation of angular momentum. (c) Calculate her initial and final kinetic energy. (d) Where does the 'extra' kinetic energy come from?",
+      "modelAnswer": "(a) ω₁ = 2 × 2π ≈ 12.6 rad/s. (b) L = I₁ω₁ = I₂ω₂ → ω₂ = (3.5 × 12.6)/1.0 = 44.1 rad/s. (c) KE₁ = ½I₁ω₁² = ½ × 3.5 × 12.6² ≈ 278 J. KE₂ = ½I₂ω₂² = ½ × 1.0 × 44.1² ≈ 973 J. (d) The extra energy (973 − 278 = 695 J) comes from the work done by her muscles pulling her arms in.",
+      "explanation": "Angular momentum is conserved (no external torque). KE is NOT conserved — the skater does positive work pulling her arms inward against the centrifugal tendency."
+    },
+    {
+      "id": "q9",
+      "marks": 6,
+      "type": "long",
+      "questionText": "A mass of 0.4 kg is attached to a spring (k = 160 N/m) and set oscillating with amplitude A = 0.05 m on a frictionless surface. (a) Calculate ω. (b) Write the equation for displacement as a function of time. (c) Find the speed when x = 0.03 m. (d) Find the total energy of the system. (e) Sketch a graph showing how KE and PE vary with displacement from −A to +A.",
+      "modelAnswer": "(a) ω = √(k/m) = √(160/0.4) = √400 = 20 rad/s. (b) x = 0.05 cos(20t) m. (c) v = ω√(A² − x²) = 20√(0.0025 − 0.0009) = 20√0.0016 = 20 × 0.04 = 0.8 m/s. (d) E = ½kA² = ½ × 160 × 0.0025 = 0.2 J. (e) KE = E − ½kx² (parabola opening down); PE = ½kx² (parabola opening up); they are symmetric about x = 0.",
+      "explanation": "The total energy is fixed at ½kA². KE is maximum at x=0; PE is maximum at x=±A."
+    }
+  ]
+}

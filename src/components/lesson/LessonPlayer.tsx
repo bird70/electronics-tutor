@@ -1,66 +1,177 @@
-import { useMemo, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useAppStore } from '@/state/store';
-import { CircuitWorkspace } from '@/components/circuit/CircuitWorkspace';
-import { ComponentPalette } from '@/components/circuit/ComponentPalette';
-import { ConceptTagBadge } from '@/components/lesson/ConceptTagBadge';
-import { evaluateCircuit, checkCondition } from '@/services/simulation/evaluateCircuit';
-import { explainCircuit } from '@/services/feedback/explainCircuit';
-import { BEGINNER_COMPONENTS } from '@/domain/circuit/types';
-import type { Lesson } from '@/domain/learning/types';
+import { getSimulation } from '@/components/simulation';
+import type { Lesson, LessonStep, TextStep, VisualizationStep, InteractiveStep, QuizStep } from '@/domain/learning/types';
 
 interface LessonPlayerProps {
   lesson: Lesson;
   onComplete: () => void;
 }
 
+function TextStepView({ step }: { step: TextStep }) {
+  const [deepOpen, setDeepOpen] = useState(false);
+  return (
+    <div className="lesson-step lesson-step--text">
+      {step.heading && <h3 className="lesson-step__heading">{step.heading}</h3>}
+      <div className="lesson-step__body">{step.body}</div>
+      {step.deepDive && (
+        <div className="deep-dive">
+          <button
+            className="btn btn--ghost deep-dive__toggle"
+            onClick={() => setDeepOpen((o) => !o)}
+            aria-expanded={deepOpen}
+          >
+            🔬 {deepOpen ? 'Hide' : 'Show'} Deep Dive
+          </button>
+          {deepOpen && (
+            <div className="deep-dive__content">{step.deepDive}</div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function VisualizationStepView({ step }: { step: VisualizationStep }) {
+  const SimComponent = getSimulation(step.visualizationKey);
+  return (
+    <div className="lesson-step lesson-step--visualization">
+      {step.heading && <h3 className="lesson-step__heading">{step.heading}</h3>}
+      {SimComponent ? (
+        <SimComponent config={step.config} />
+      ) : (
+        <p className="lesson-step__missing">
+          Visualisation &quot;{step.visualizationKey}&quot; not available.
+        </p>
+      )}
+      <p className="lesson-step__caption">{step.caption}</p>
+    </div>
+  );
+}
+
+function InteractiveStepView({ step }: { step: InteractiveStep }) {
+  const SimComponent = getSimulation(step.simulationKey);
+  const [deepOpen, setDeepOpen] = useState(false);
+  return (
+    <div className="lesson-step lesson-step--interactive">
+      {step.heading && <h3 className="lesson-step__heading">{step.heading}</h3>}
+      <p className="lesson-step__instruction">🎛️ {step.instructionText}</p>
+      {SimComponent ? (
+        <SimComponent config={step.config} />
+      ) : (
+        <p className="lesson-step__missing">
+          Simulation &quot;{step.simulationKey}&quot; not available.
+        </p>
+      )}
+      {step.deepDive && (
+        <div className="deep-dive">
+          <button
+            className="btn btn--ghost deep-dive__toggle"
+            onClick={() => setDeepOpen((o) => !o)}
+            aria-expanded={deepOpen}
+          >
+            🔬 {deepOpen ? 'Hide' : 'Show'} Deep Dive
+          </button>
+          {deepOpen && (
+            <div className="deep-dive__content">{step.deepDive}</div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function QuizStepView({
+  step,
+  onAnswered,
+}: {
+  step: QuizStep;
+  onAnswered: (correct: boolean) => void;
+}) {
+  const [selected, setSelected] = useState<number | null>(null);
+
+  const handleSelect = useCallback(
+    (index: number) => {
+      if (selected !== null) return;
+      setSelected(index);
+      onAnswered(index === step.correctIndex);
+    },
+    [selected, step.correctIndex, onAnswered],
+  );
+
+  return (
+    <div className="lesson-step lesson-step--quiz">
+      <h3 className="lesson-step__heading">❓ Quick Check</h3>
+      <p className="quiz-question">{step.questionText}</p>
+      <div className="quiz-options">
+        {step.options.map((opt, i) => {
+          let cls = 'quiz-option';
+          if (selected !== null) {
+            if (i === step.correctIndex) cls += ' quiz-option--correct';
+            else if (i === selected) cls += ' quiz-option--wrong';
+          }
+          return (
+            <button
+              key={i}
+              className={cls}
+              onClick={() => handleSelect(i)}
+              disabled={selected !== null}
+            >
+              {opt}
+            </button>
+          );
+        })}
+      </div>
+      {selected !== null && (
+        <div
+          className={`quiz-feedback ${selected === step.correctIndex ? 'quiz-feedback--correct' : 'quiz-feedback--wrong'}`}
+        >
+          {selected === step.correctIndex ? '✅ Correct! ' : '❌ Not quite. '}
+          {step.explanation}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function renderStep(
+  step: LessonStep,
+  onQuizAnswered: (correct: boolean) => void,
+) {
+  switch (step.type) {
+    case 'text':
+      return <TextStepView key={step.id} step={step} />;
+    case 'visualization':
+      return <VisualizationStepView key={step.id} step={step} />;
+    case 'interactive':
+      return <InteractiveStepView key={step.id} step={step} />;
+    case 'quiz':
+      return <QuizStepView key={step.id} step={step} onAnswered={onQuizAnswered} />;
+    default:
+      return null;
+  }
+}
+
 /**
- * Guided lesson player: displays step instructions, circuit workspace,
- * component palette, real-time feedback, and step progression.
+ * Guided lesson player for mechanics-tutor.
+ * Supports text, visualisation, interactive, and quiz step types.
  */
 export function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) {
   const stepIndex = useAppStore((s) => s.activeLessonStepIndex);
   const setStepIndex = useAppStore((s) => s.setActiveLessonStepIndex);
-  const graph = useAppStore((s) => s.circuitGraph);
-  const setGraph = useAppStore((s) => s.setCircuitGraph);
-  const setLastEvaluation = useAppStore((s) => s.setLastEvaluation);
   const setLastSession = useAppStore((s) => s.setLastSession);
 
   const currentStep = lesson.steps[stepIndex];
   const isLastStep = stepIndex === lesson.steps.length - 1;
 
-  // Build a definitions lookup from the lesson's allowed palette
-  const componentDefs = useMemo(() => {
-    const map: Record<string, { type: string }> = {};
-    for (const def of BEGINNER_COMPONENTS) {
-      if (lesson.componentPalette.includes(def.id)) {
-        map[def.id] = { type: def.type };
-      }
-    }
-    return map;
-  }, [lesson.componentPalette]);
+  // Quiz steps require answering before continuing
+  const [quizAnswered, setQuizAnswered] = useState(false);
 
-  const availableComponents = useMemo(
-    () => BEGINNER_COMPONENTS.filter((d) => lesson.componentPalette.includes(d.id)),
-    [lesson.componentPalette],
-  );
+  const canContinue =
+    currentStep?.type !== 'quiz' || quizAnswered;
 
-  // Evaluate on every graph change
-  const evaluation = useMemo(() => {
-    const result = evaluateCircuit(graph, componentDefs);
-    return result;
-  }, [graph, componentDefs]);
-
-  const feedback = useMemo(() => explainCircuit(evaluation), [evaluation]);
-
-  const conditionMet = currentStep
-    ? checkCondition(evaluation, currentStep.targetCondition)
-    : false;
-
-  const handleEvaluate = useCallback(() => {
-    setLastEvaluation(evaluation);
-  }, [evaluation, setLastEvaluation]);
-
-  const handleNextStep = useCallback(() => {
+  const handleNext = useCallback(() => {
+    setQuizAnswered(false);
     if (isLastStep) {
       onComplete();
     } else {
@@ -72,72 +183,40 @@ export function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) {
 
   return (
     <div className="lesson-player">
-      {/* Header */}
       <header className="lesson-player__header">
         <h2>{lesson.title}</h2>
         <div className="lesson-player__tags">
           {lesson.conceptTags.map((tag) => (
-            <ConceptTagBadge key={tag} tag={tag} />
+            <span key={tag} className="concept-tag">{tag}</span>
           ))}
         </div>
         <p className="lesson-player__intro">{lesson.introText}</p>
         <div className="lesson-player__progress">
           Step {stepIndex + 1} of {lesson.steps.length}
+          <div className="lesson-player__progress-bar-track">
+            <div
+              className="lesson-player__progress-bar"
+              style={{ width: `${((stepIndex + 1) / lesson.steps.length) * 100}%` }}
+            />
+          </div>
         </div>
       </header>
 
-      {/* Step instruction */}
-      {currentStep && (
-        <section className="lesson-player__step">
-          <h3>📝 {currentStep.instructionText}</h3>
-          {conditionMet ? (
-            <div className="lesson-player__feedback lesson-player__feedback--success">
-              ✅ {currentStep.feedbackOnSuccess}
-            </div>
-          ) : (
-            evaluation.errors.length === 0 &&
-            evaluation.isValid && (
-              <div className="lesson-player__feedback lesson-player__feedback--hint">
-                💡 {currentStep.feedbackOnFailure}
-              </div>
-            )
-          )}
-        </section>
-      )}
-
-      {/* Canvas area */}
-      <div className="lesson-player__workspace">
-        <div className="lesson-player__palette">
-          <ComponentPalette
-            graph={graph}
-            onGraphChange={setGraph}
-            availableComponents={availableComponents}
-          />
-        </div>
-        <div className="lesson-player__canvas">
-          <CircuitWorkspace graph={graph} onGraphChange={setGraph} />
-        </div>
+      <div className="lesson-player__step-area">
+        {currentStep && renderStep(
+          currentStep,
+          (correct) => { void correct; setQuizAnswered(true); },
+        )}
       </div>
 
-      {/* Feedback panel */}
-      <section className="lesson-player__feedback-panel">
-        <h4>Circuit Analysis</h4>
-        <ul>
-          {feedback.map((line, i) => (
-            <li key={i}>{line}</li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Actions */}
       <div className="lesson-player__actions">
-        <button className="btn" onClick={handleEvaluate}>
-          ⚡ Evaluate Circuit
-        </button>
-        {conditionMet && (
-          <button className="btn btn--accent" onClick={handleNextStep}>
-            {isLastStep ? '🎉 Complete Lesson' : 'Next Step →'}
+        {canContinue && (
+          <button className="btn btn--accent" onClick={handleNext}>
+            {isLastStep ? '🎉 Complete Lesson' : 'Next →'}
           </button>
+        )}
+        {!canContinue && (
+          <span className="lesson-player__hint">Answer the question to continue.</span>
         )}
       </div>
     </div>
