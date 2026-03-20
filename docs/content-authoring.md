@@ -29,6 +29,30 @@ src/content/
 
 The content loading service uses Vite glob imports to automatically discover all JSON files in these directories. After adding or editing a file, restart the dev server (`npm run dev`) or rebuild (`npm run build`) for changes to take effect.
 
+### Built-in lessons & plans
+
+- Beginner (`beginner-foundations`, 6 lessons):
+  - `basics-series-circuit`
+  - `measurement-basics-meters`
+  - `current-limiting-basics`
+  - `voltage-divider-basics`
+  - `series-dual-source-boost`
+  - `power-budgeting-series`
+
+- Intermediate (`intermediate-series-progression`, 5 lessons):
+  - `intermediate-stable-current-supply`
+  - `intermediate-dual-resistor-tuning`
+  - `intermediate-switchable-load`
+  - `intermediate-meter-crosscheck`
+  - `intermediate-power-headroom`
+
+- Advanced (`advanced-safety-efficiency`, 5 lessons):
+  - `advanced-high-resistance-sensing`
+  - `advanced-two-source-rail`
+  - `advanced-power-derating`
+  - `advanced-low-current-tracing`
+  - `advanced-efficient-rail-tuning`
+
 ---
 
 ## Adding a Lesson
@@ -163,7 +187,7 @@ Create a new JSON file in `src/content/lesson-plans/`. The filename should match
   "id": "intermediate-power",           // Unique string ID
   "title": "Power and Energy",
   "goal": "Understand how power is calculated and why it matters for real circuits.",
-  "difficultyBand": "intermediate",     // "beginner" or "intermediate"
+  "difficultyBand": "intermediate",     // "beginner" | "intermediate" | "advanced"
   "lessonIds": [                        // Ordered list of lesson IDs
     "basics-series-circuit",
     "ohms-law-deep-dive"
@@ -180,7 +204,7 @@ Create a new JSON file in `src/content/lesson-plans/`. The filename should match
 | `id` | string | Unique across all plans |
 | `title` | string | Display name |
 | `goal` | string | One-sentence description of what the learner will achieve |
-| `difficultyBand` | `"beginner"` \| `"intermediate"` | Shown in the selector UI |
+| `difficultyBand` | `"beginner"` \| `"intermediate"` \| `"advanced"` | Shown in the selector UI |
 | `lessonIds` | string[] | Ordered; all IDs must match existing lessons |
 | `estimatedMinutes` | number | Helps learners decide whether to start now |
 

@@ -1,0 +1,70 @@
+{
+  "id": "intermediate-dual-resistor-tuning",
+  "title": "Dual-Resistor Tuning",
+  "conceptTags": ["resistance", "voltage", "current"],
+  "learningObjectives": [
+    "Adjust two series resistors to hit a target total resistance",
+    "Relate resistance sum to current draw",
+    "Preserve safe current while changing voltage"
+  ],
+  "introText": "Stacking resistors lets you set precise totals. You'll balance two resistors to reach a target resistance while keeping current at a safe level.",
+  "componentPalette": ["dc-source", "resistor", "wire"],
+  "steps": [
+    {
+      "id": "step-1-build-divider",
+      "instructionText": "Add a 12V source and two resistors in series, wired into a single loop.",
+      "targetCondition": {
+        "metric": "validCircuit",
+        "operator": "eq",
+        "value": true
+      },
+      "feedbackOnSuccess": "Loop complete with two resistors ready for tuning.",
+      "feedbackOnFailure": "Ensure both resistors and the source are wired together with no open ends."
+    },
+    {
+      "id": "step-2-hit-resistance",
+      "instructionText": "Adjust the pair to reach at least 2.4 kΩ of total resistance.",
+      "targetCondition": {
+        "metric": "resistance",
+        "operator": "gte",
+        "value": 2400
+      },
+      "feedbackOnSuccess": "Total resistance hits the 2.4 kΩ target.",
+      "feedbackOnFailure": "Increase one or both resistors until the total reaches 2400Ω or higher."
+    },
+    {
+      "id": "step-3-current-check",
+      "instructionText": "Verify the current is below 6 mA at 12V.",
+      "targetCondition": {
+        "metric": "current",
+        "operator": "lt",
+        "value": 0.006
+      },
+      "feedbackOnSuccess": "Current is under 6 mA — safe for delicate loads.",
+      "feedbackOnFailure": "Increase total resistance slightly or lower the source voltage to reduce current."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "q1",
+        "questionText": "How do two resistors in series combine?",
+        "options": ["They multiply", "They add together", "They divide", "They cancel"],
+        "correctIndex": 1,
+        "explanation": "Series resistors add directly: R_total = R1 + R2."
+      },
+      {
+        "id": "q2",
+        "questionText": "Why does higher total resistance lower current?",
+        "options": [
+          "It increases voltage",
+          "It lowers voltage",
+          "It makes the circuit invalid",
+          "Ohm's Law: higher R reduces I for the same V"
+        ],
+        "correctIndex": 3,
+        "explanation": "From I = V/R, increasing R decreases I when V is fixed."
+      }
+    ]
+  }
+}

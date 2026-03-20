@@ -2,7 +2,7 @@
 export type ConceptTag = 'voltage' | 'current' | 'resistance' | 'resistivity' | 'power';
 
 /** Difficulty bands for lesson plans */
-export type DifficultyBand = 'beginner' | 'intermediate';
+export type DifficultyBand = 'beginner' | 'intermediate' | 'advanced';
 
 /** Reading level for reference resources */
 export type ReadingLevel = 'beginner' | 'high_school' | 'advanced';

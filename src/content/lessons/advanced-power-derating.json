@@ -1,0 +1,75 @@
+{
+  "id": "advanced-power-derating",
+  "title": "Power Derating Practice",
+  "conceptTags": ["power", "current", "resistance"],
+  "learningObjectives": [
+    "Derate power to keep components cool under stress",
+    "Use resistance to cut power without losing circuit validity",
+    "Relate power changes to both voltage and current"
+  ],
+  "introText": "Derating keeps components reliable. You'll start near a component limit, then reduce voltage and increase resistance to create a safe margin.",
+  "componentPalette": ["dc-source", "resistor", "wire"],
+  "steps": [
+    {
+      "id": "step-1-build-loop",
+      "instructionText": "Place a 12V source and a resistor in series and wire the loop closed.",
+      "targetCondition": {
+        "metric": "validCircuit",
+        "operator": "eq",
+        "value": true
+      },
+      "feedbackOnSuccess": "Loop built — you can measure power now.",
+      "feedbackOnFailure": "Connect the source and resistor end-to-end so the circuit is valid."
+    },
+    {
+      "id": "step-2-set-limit",
+      "instructionText": "Start with a low resistor value so power is near 0.5 W, then raise resistance until power falls below 0.25 W.",
+      "targetCondition": {
+        "metric": "power",
+        "operator": "lt",
+        "value": 0.25
+      },
+      "feedbackOnSuccess": "Power is under 0.25 W — safely derated.",
+      "feedbackOnFailure": "Increase resistance or reduce voltage until power is below 0.25 W."
+    },
+    {
+      "id": "step-3-verify-current",
+      "instructionText": "Confirm current is also under 25 mA after derating.",
+      "targetCondition": {
+        "metric": "current",
+        "operator": "lt",
+        "value": 0.025
+      },
+      "feedbackOnSuccess": "Current is under 25 mA, aligning with the new power budget.",
+      "feedbackOnFailure": "Increase resistance further or lower voltage to bring current below 25 mA."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "q1",
+        "questionText": "Why derate power below a component's maximum?",
+        "options": [
+          "To intentionally overheat components",
+          "To increase noise",
+          "To extend lifetime and avoid overheating",
+          "To reduce resistance"
+        ],
+        "correctIndex": 2,
+        "explanation": "Running below the max rating keeps parts cooler and more reliable."
+      },
+      {
+        "id": "q2",
+        "questionText": "Which change lowers power the most efficiently?",
+        "options": [
+          "Increase resistance or reduce voltage",
+          "Remove the resistor",
+          "Increase voltage",
+          "Add wires in parallel"
+        ],
+        "correctIndex": 0,
+        "explanation": "Lowering voltage and/or raising resistance reduces both current and power."
+      }
+    ]
+  }
+}
