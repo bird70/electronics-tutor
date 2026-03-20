@@ -1,0 +1,75 @@
+{
+  "id": "voltage-divider-basics",
+  "title": "Voltage Divider for Safer Loads",
+  "conceptTags": ["voltage", "resistance"],
+  "learningObjectives": [
+    "Build a two-resistor voltage divider in series",
+    "Relate total resistance to circuit current",
+    "Explain how resistance ratios set intermediate voltages"
+  ],
+  "introText": "Voltage dividers use two resistors in series to split voltage between them. You'll size the divider to pull only a few milliamps so it can feed delicate sensors.",
+  "componentPalette": ["dc-source", "resistor", "wire"],
+  "steps": [
+    {
+      "id": "step-1-divider-built",
+      "instructionText": "Add a 9V source and two resistors in series. Wire them so current flows through both resistors.",
+      "targetCondition": {
+        "metric": "resistance",
+        "operator": "gte",
+        "value": 1500
+      },
+      "feedbackOnSuccess": "Good start! Two resistors are in the loop, giving at least 1.5 kΩ of total resistance.",
+      "feedbackOnFailure": "Place two resistors in the same series loop with the source. Increase their values so together they reach around 1.5 kΩ."
+    },
+    {
+      "id": "step-2-check-current",
+      "instructionText": "Adjust the pair to about 2 kΩ total so the divider only draws a few milliamps.",
+      "targetCondition": {
+        "metric": "current",
+        "operator": "lt",
+        "value": 0.005
+      },
+      "feedbackOnSuccess": "Current is under 5 mA — perfect for a light sensor input.",
+      "feedbackOnFailure": "Raise the resistor values. More resistance in series lowers current for the same 9V source."
+    },
+    {
+      "id": "step-3-tighten-drop",
+      "instructionText": "Make the lower resistor roughly double the upper one so most voltage drops there.",
+      "targetCondition": {
+        "metric": "voltage",
+        "operator": "eq",
+        "value": 9
+      },
+      "feedbackOnSuccess": "Your divider still sees the full 9V across both resistors, ready to split between them based on the ratio.",
+      "feedbackOnFailure": "Keep the total at 9V and adjust the ratio. Remember: in a series divider, the source voltage is shared across both resistors."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "q1",
+        "questionText": "Why should a voltage divider use fairly large resistors when feeding a sensor?",
+        "options": [
+          "Large resistors make wiring easier",
+          "Large resistors keep current low and waste less power",
+          "Large resistors increase voltage",
+          "Large resistors make voltage readings more accurate by themselves"
+        ],
+        "correctIndex": 1,
+        "explanation": "High resistance keeps divider current small so you don't waste power or overload a sensor input."
+      },
+      {
+        "id": "q2",
+        "questionText": "If both divider resistors are equal, what happens?",
+        "options": [
+          "All voltage drops on the first resistor",
+          "All voltage drops on the second resistor",
+          "Voltage splits evenly between them",
+          "The circuit is open"
+        ],
+        "correctIndex": 2,
+        "explanation": "Equal resistors share voltage equally in series."
+      }
+    ]
+  }
+}

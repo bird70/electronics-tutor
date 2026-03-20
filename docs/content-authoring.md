@@ -29,6 +29,17 @@ src/content/
 
 The content loading service uses Vite glob imports to automatically discover all JSON files in these directories. After adding or editing a file, restart the dev server (`npm run dev`) or rebuild (`npm run build`) for changes to take effect.
 
+### Built-in lessons
+
+The default beginner learning path (`beginner-foundations`) now ships with six guided lessons:
+
+- `basics-series-circuit` — build your first loop and observe current in a simple series circuit.
+- `measurement-basics-meters` — practice wiring a clean loop while comparing readings with a meter.
+- `current-limiting-basics` — raise resistance to keep current inside safe limits.
+- `voltage-divider-basics` — size a two-resistor divider that only draws a few milliamps.
+- `series-dual-source-boost` — combine two sources in series to raise voltage safely.
+- `power-budgeting-series` — adjust voltage and resistance to keep total power under control.
+
 ---
 
 ## Adding a Lesson
