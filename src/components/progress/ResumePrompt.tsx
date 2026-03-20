@@ -11,13 +11,13 @@ export function ResumePrompt() {
   const label =
     lastSession.type === 'lesson'
       ? `Continue lesson "${lastSession.id}"`
-      : `Continue exam "${lastSession.id}"`;
+      : `Continue challenge "${lastSession.id}"`;
 
   const handleResume = () => {
     if (lastSession.type === 'lesson') {
       navigate(`/lesson/${lastSession.id}`);
     } else {
-      navigate(`/exams?play=${lastSession.id}`);
+      navigate('/challenges');
     }
   };
 

@@ -1,0 +1,75 @@
+{
+  "id": "current-limiting-basics",
+  "title": "Setting Safe Current Limits",
+  "conceptTags": ["current", "resistance", "voltage"],
+  "learningObjectives": [
+    "Use resistance to cap current for sensitive loads",
+    "Relate Ohm's Law to milliamp targets",
+    "See how doubling resistance halves the current"
+  ],
+  "introText": "Every real circuit has a safe current limit. You'll start with a strong current, then use higher resistance to bring it down to a target range.",
+  "componentPalette": ["dc-source", "resistor", "wire"],
+  "steps": [
+    {
+      "id": "step-1-strong-current",
+      "instructionText": "Place a 9V source and a 150Ω resistor in series. Wire the loop and check the current.",
+      "targetCondition": {
+        "metric": "current",
+        "operator": "gt",
+        "value": 0.05
+      },
+      "feedbackOnSuccess": "Current is above 50 mA — that's more than many LEDs can handle.",
+      "feedbackOnFailure": "Lower the resistor value toward 150Ω or raise the voltage until current exceeds 50 mA."
+    },
+    {
+      "id": "step-2-limit-current",
+      "instructionText": "Increase resistance to about 360Ω to reduce current below 25 mA.",
+      "targetCondition": {
+        "metric": "current",
+        "operator": "lte",
+        "value": 0.025
+      },
+      "feedbackOnSuccess": "Great — current is under 25 mA, a safe range for indicator LEDs.",
+      "feedbackOnFailure": "Raise the resistor value. More resistance in series drops the current."
+    },
+    {
+      "id": "step-3-check-power",
+      "instructionText": "Keep the loop as-is and confirm the total power stays under 0.3 W.",
+      "targetCondition": {
+        "metric": "power",
+        "operator": "lt",
+        "value": 0.3
+      },
+      "feedbackOnSuccess": "Power is within limits. Lower current also protects against overheating.",
+      "feedbackOnFailure": "If power is high, increase resistance or lower the source voltage slightly."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "q1",
+        "questionText": "If you double the resistance in a series circuit while keeping voltage the same, what happens to current?",
+        "options": [
+          "It doubles",
+          "It stays the same",
+          "It halves",
+          "It drops to zero"
+        ],
+        "correctIndex": 2,
+        "explanation": "Ohm's Law: I = V/R. Doubling R halves I."
+      },
+      {
+        "id": "q2",
+        "questionText": "Why is setting a current target important for LEDs?",
+        "options": [
+          "LEDs need as much current as possible",
+          "Too much current overheats and damages LEDs",
+          "Current has no effect on LEDs",
+          "LEDs only care about voltage"
+        ],
+        "correctIndex": 1,
+        "explanation": "LEDs have safe current limits. Exceeding them can overheat or destroy the device."
+      }
+    ]
+  }
+}

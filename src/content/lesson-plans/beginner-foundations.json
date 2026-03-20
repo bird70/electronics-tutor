@@ -1,0 +1,15 @@
+{
+  "id": "beginner-foundations",
+  "title": "Electronics Foundations",
+  "goal": "Learn the basic concepts of voltage, current, resistance, safe current limits, and power budgeting by building progressively richer series circuits.",
+  "difficultyBand": "beginner",
+  "lessonIds": [
+    "basics-series-circuit",
+    "measurement-basics-meters",
+    "current-limiting-basics",
+    "voltage-divider-basics",
+    "series-dual-source-boost",
+    "power-budgeting-series"
+  ],
+  "estimatedMinutes": 90
+}

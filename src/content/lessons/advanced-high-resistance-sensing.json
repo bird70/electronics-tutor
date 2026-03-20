@@ -1,0 +1,70 @@
+{
+  "id": "advanced-high-resistance-sensing",
+  "title": "High-Resistance Sensing",
+  "conceptTags": ["resistance", "current", "voltage"],
+  "learningObjectives": [
+    "Use very high resistance to limit current for sensing",
+    "Stabilize readings by minimizing current draw",
+    "Confirm circuits remain valid even with small currents"
+  ],
+  "introText": "Sensitive sensors draw micro-level currents. You'll push resistance high so current stays tiny, preserving voltage readings without loading the source.",
+  "componentPalette": ["dc-source", "resistor", "wire", "voltmeter"],
+  "steps": [
+    {
+      "id": "step-1-build-loop",
+      "instructionText": "Wire a 9V source and a resistor in a closed loop.",
+      "targetCondition": {
+        "metric": "validCircuit",
+        "operator": "eq",
+        "value": true
+      },
+      "feedbackOnSuccess": "Circuit is valid and ready to measure.",
+      "feedbackOnFailure": "Connect both sides of the source and resistor to close the loop."
+    },
+    {
+      "id": "step-2-raise-resistance",
+      "instructionText": "Increase the resistor until current falls below 1 mA.",
+      "targetCondition": {
+        "metric": "current",
+        "operator": "lt",
+        "value": 0.001
+      },
+      "feedbackOnSuccess": "Current is under 1 mA — excellent for high-impedance sensing.",
+      "feedbackOnFailure": "Raise the resistor value until current drops below 0.001 A."
+    },
+    {
+      "id": "step-3-verify-voltage",
+      "instructionText": "Keep the loop intact and confirm the source still provides about 9V.",
+      "targetCondition": {
+        "metric": "voltage",
+        "operator": "eq",
+        "value": 9
+      },
+      "feedbackOnSuccess": "Voltage holds near 9V while current stays tiny — ideal for sensing.",
+      "feedbackOnFailure": "Set the source to roughly 9V and ensure wiring stays closed."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "q1",
+        "questionText": "Why use very high resistance when sensing voltage?",
+        "options": [
+          "To increase heat",
+          "To avoid loading the source and changing the voltage",
+          "To force current to rise",
+          "To make the circuit invalid"
+        ],
+        "correctIndex": 1,
+        "explanation": "High resistance keeps current tiny so the source voltage is not pulled down."
+      },
+      {
+        "id": "q2",
+        "questionText": "If current must stay below 1 mA at 9V, what resistance range works?",
+        "options": ["9Ω", "90Ω", "9000Ω or higher", "No resistance needed"],
+        "correctIndex": 2,
+        "explanation": "From I = V/R, keeping I < 0.001 A requires R > 9000Ω so current stays safely below 1 mA."
+      }
+    ]
+  }
+}

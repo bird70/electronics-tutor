@@ -2,10 +2,11 @@ import { create } from 'zustand';
 import type {
   Lesson,
   LessonPlan,
-  ExamPaper,
+  CircuitChallenge,
   ProgressProfile,
   LastSessionState,
 } from '@/domain/learning/types';
+import type { CircuitGraph, CircuitEvaluation } from '@/domain/circuit/types';
 import { loadProgress, saveProgress } from '@/services/persistence/progressStore';
 
 interface AppState {
@@ -22,15 +23,22 @@ interface AppState {
   activeLessonStepIndex: number;
   setActiveLessonStepIndex: (index: number) => void;
 
-  activeExam: ExamPaper | null;
-  setActiveExam: (exam: ExamPaper | null) => void;
+  activeChallenge: CircuitChallenge | null;
+  setActiveChallenge: (challenge: CircuitChallenge | null) => void;
+
+  // Circuit workspace
+  circuitGraph: CircuitGraph;
+  setCircuitGraph: (graph: CircuitGraph) => void;
+
+  lastEvaluation: CircuitEvaluation | null;
+  setLastEvaluation: (evaluation: CircuitEvaluation | null) => void;
 
   // Session
   setLastSession: (session: LastSessionState | undefined) => void;
 
   // Completion actions
   completeLesson: (lessonId: string) => void;
-  completeExam: (examId: string) => void;
+  completeChallenge: (challengeId: string, level: number) => void;
 }
 
 export const useAppStore = create<AppState>((set, get) => ({
@@ -50,8 +58,14 @@ export const useAppStore = create<AppState>((set, get) => ({
   activeLessonStepIndex: 0,
   setActiveLessonStepIndex: (index) => set({ activeLessonStepIndex: index }),
 
-  activeExam: null,
-  setActiveExam: (exam) => set({ activeExam: exam }),
+  activeChallenge: null,
+  setActiveChallenge: (challenge) => set({ activeChallenge: challenge }),
+
+  circuitGraph: { components: [], wires: [] },
+  setCircuitGraph: (graph) => set({ circuitGraph: graph }),
+
+  lastEvaluation: null,
+  setLastEvaluation: (evaluation) => set({ lastEvaluation: evaluation }),
 
   setLastSession: (session) => {
     const { progress } = get();
@@ -72,12 +86,19 @@ export const useAppStore = create<AppState>((set, get) => ({
     set({ progress: updated });
   },
 
-  completeExam: (examId) => {
+  completeChallenge: (challengeId, level) => {
     const { progress } = get();
-    if (progress.completedExamIds.includes(examId)) return;
+    const completedChallengeIds = progress.completedChallengeIds.includes(challengeId)
+      ? progress.completedChallengeIds
+      : [...progress.completedChallengeIds, challengeId];
+    const nextLevel = level + 1;
+    const unlockedLevels = progress.unlockedLevels.includes(nextLevel)
+      ? progress.unlockedLevels
+      : [...progress.unlockedLevels, nextLevel];
     const updated: ProgressProfile = {
       ...progress,
-      completedExamIds: [...progress.completedExamIds, examId],
+      completedChallengeIds,
+      unlockedLevels,
       lastSessionState: undefined,
     };
     saveProgress(updated);

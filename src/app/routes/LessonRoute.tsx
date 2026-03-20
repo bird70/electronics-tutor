@@ -12,6 +12,7 @@ export function LessonRoute() {
   const { lessonId } = useParams<{ lessonId: string }>();
   const navigate = useNavigate();
   const setActiveLesson = useAppStore((s) => s.setActiveLesson);
+  const setCircuitGraph = useAppStore((s) => s.setCircuitGraph);
   const completeLesson = useAppStore((s) => s.completeLesson);
 
   const [lesson, setLesson] = useState<Lesson | null>(null);
@@ -24,15 +25,16 @@ export function LessonRoute() {
       if (l) {
         setLesson(l);
         setActiveLesson(l);
+        setCircuitGraph({ components: [], wires: [] });
         setPhase('playing');
       } else {
-        setPhase('done');
+        setPhase('done'); // not found
       }
     });
     return () => {
       setActiveLesson(null);
     };
-  }, [lessonId, setActiveLesson]);
+  }, [lessonId, setActiveLesson, setCircuitGraph]);
 
   const handleLessonComplete = useCallback(() => {
     if (lesson?.assessment) {
@@ -60,7 +62,7 @@ export function LessonRoute() {
     return (
       <div className="error-page">
         <h2>Lesson not found</h2>
-        <p>The lesson &ldquo;{lessonId}&rdquo; could not be found.</p>
+        <p>The lesson "{lessonId}" could not be found.</p>
         <button className="btn" onClick={() => navigate('/learn')}>
           ← Back to Lesson Plans
         </button>
@@ -76,12 +78,15 @@ export function LessonRoute() {
     return <ConceptCheck assessment={lesson.assessment} onComplete={handleQuizComplete} />;
   }
 
+  // Done phase
   return (
     <div className="lesson-complete">
       <h2>🎉 Lesson Complete!</h2>
       <p>You finished: <strong>{lesson.title}</strong></p>
       {quizScore && (
-        <p>Quiz score: {quizScore.score}/{quizScore.total}</p>
+        <p>
+          Quiz score: {quizScore.score}/{quizScore.total}
+        </p>
       )}
       <div className="lesson-complete__actions">
         <button className="btn" onClick={() => navigate('/learn')}>

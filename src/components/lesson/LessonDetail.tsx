@@ -17,6 +17,7 @@ export function LessonDetail({ lesson, status, order, references = [] }: LessonD
   const navigate = useNavigate();
   const isPlayable = status === 'available' || status === 'completed';
 
+  // Filter references that match any of the lesson's concept tags
   const relevantRefs = references.filter((ref) =>
     ref.conceptTags.some((tag) => lesson.conceptTags.includes(tag)),
   );
