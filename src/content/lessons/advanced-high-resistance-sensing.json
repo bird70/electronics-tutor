@@ -61,9 +61,9 @@
       {
         "id": "q2",
         "questionText": "If current must stay below 1 mA at 9V, what resistance range works?",
-        "options": ["9Ω", "90Ω", "900Ω or higher", "No resistance needed"],
+        "options": ["9Ω", "90Ω", "9000Ω or higher", "No resistance needed"],
         "correctIndex": 2,
-        "explanation": "From I = V/R, keeping I < 0.001 A requires R > 9000Ω; 900Ω is a starting point to raise further."
+        "explanation": "From I = V/R, keeping I < 0.001 A requires R > 9000Ω. Very high resistance keeps current in the microamp to milliamp range."
       }
     ]
   }

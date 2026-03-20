@@ -48,7 +48,7 @@ describe('contentRepository', () => {
     }
   });
 
-  it('keeps plans aligned with the lesson catalog by difficulty', async () => {
+  it('verifies lesson plans reference existing lessons and match expected sequences', async () => {
     const [lessons, plans] = await Promise.all([loadLessons(), loadLessonPlans()]);
     const lessonIdSet = new Set(lessons.map((l) => l.id));
 
