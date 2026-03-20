@@ -1,0 +1,75 @@
+{
+  "id": "advanced-two-source-rail",
+  "title": "Two-Source Rail Build",
+  "conceptTags": ["voltage", "power", "resistance"],
+  "learningObjectives": [
+    "Stack sources safely to reach higher rail voltages",
+    "Adjust resistance to manage current at higher voltages",
+    "Keep power within safe bounds when voltage rises"
+  ],
+  "introText": "Higher rails need careful resistance. You'll stack two sources to reach a higher voltage, then raise resistance to control current and power.",
+  "componentPalette": ["dc-source", "resistor", "wire"],
+  "steps": [
+    {
+      "id": "step-1-wire-sources",
+      "instructionText": "Place two DC sources and a resistor in series, wired into a closed loop.",
+      "targetCondition": {
+        "metric": "validCircuit",
+        "operator": "eq",
+        "value": true
+      },
+      "feedbackOnSuccess": "Loop is closed with both sources in series.",
+      "feedbackOnFailure": "Wire both sources and the resistor end-to-end so the loop is complete."
+    },
+    {
+      "id": "step-2-set-rail",
+      "instructionText": "Set each source near 9V so the total voltage is about 18V.",
+      "targetCondition": {
+        "metric": "voltage",
+        "operator": "eq",
+        "value": 18
+      },
+      "feedbackOnSuccess": "Total supply is about 18V — a higher rail for advanced loads.",
+      "feedbackOnFailure": "Adjust both sources until the total voltage is close to 18V."
+    },
+    {
+      "id": "step-3-manage-power",
+      "instructionText": "Increase resistance until power drops below 0.35 W.",
+      "targetCondition": {
+        "metric": "power",
+        "operator": "lt",
+        "value": 0.35
+      },
+      "feedbackOnSuccess": "Power is under 0.35 W, keeping the higher rail safe.",
+      "feedbackOnFailure": "Raise resistance further or lower voltage to reduce power."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "q1",
+        "questionText": "What risk increases when stacking sources for higher voltage?",
+        "options": [
+          "Lower current",
+          "Higher power that can overheat components",
+          "Improved efficiency automatically",
+          "Elimination of resistance"
+        ],
+        "correctIndex": 1,
+        "explanation": "Higher voltage can raise both current and power unless resistance is increased."
+      },
+      {
+        "id": "q2",
+        "questionText": "How do you keep power safe at higher voltage?",
+        "options": [
+          "Lower resistance or raise voltage",
+          "Raise resistance or reduce voltage",
+          "Remove the resistor",
+          "Add more wires"
+        ],
+        "correctIndex": 1,
+        "explanation": "Increase resistance or decrease voltage so P = V × I stays within limits."
+      }
+    ]
+  }
+}
