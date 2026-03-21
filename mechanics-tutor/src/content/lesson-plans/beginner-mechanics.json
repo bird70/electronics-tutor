@@ -1,8 +1,0 @@
-{
-  "id": "beginner-mechanics",
-  "title": "Beginner Mechanics",
-  "goal": "Build a solid foundation in classical mechanics fundamentals",
-  "difficultyBand": "beginner",
-  "lessonIds": ["intro-kinematics", "newtons-laws", "work-energy-power"],
-  "estimatedMinutes": 90
-}
