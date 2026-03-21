@@ -1,0 +1,54 @@
+{
+  "id": "rotational-mechanics",
+  "title": "Rotational Mechanics",
+  "conceptTags": ["rotation"],
+  "learningObjectives": [
+    "Define torque and calculate it using τ = Fr sinθ",
+    "Calculate moment of inertia for simple shapes",
+    "Apply the rotational analogue of Newton's second law: τ = Iα",
+    "State and apply conservation of angular momentum"
+  ],
+  "introText": "Rotational mechanics extends the concepts of linear mechanics to rotating objects. Every linear quantity has a rotational analogue: force → torque, mass → moment of inertia, velocity → angular velocity.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "rm-text-1",
+      "heading": "Torque",
+      "body": "Torque (τ) is the rotational equivalent of force. It measures the tendency of a force to cause rotation:\n\nτ = Fr sinθ\n\nwhere F is the applied force, r is the perpendicular distance from the pivot (moment arm), and θ is the angle between F and r.\n\nTorque is measured in Newton-metres (N·m).",
+      "deepDive": "For maximum torque, apply the force perpendicular to the moment arm (θ = 90°, sinθ = 1). This is why door handles are placed far from the hinge."
+    },
+    {
+      "type": "text",
+      "id": "rm-text-2",
+      "heading": "Moment of Inertia",
+      "body": "Moment of inertia (I) is the rotational analogue of mass — it measures resistance to angular acceleration.\n\nFor a point mass: I = mr²\nSolid disk: I = ½MR²\nHollow cylinder: I = MR²\nSolid sphere: I = ²⁄₅MR²\n\nRotational Newton's second law:\nτ = Iα\n\nwhere α is angular acceleration (rad/s²).",
+      "deepDive": "The distribution of mass matters for I. Two objects of the same total mass can have very different moments of inertia depending on how the mass is distributed."
+    },
+    {
+      "type": "text",
+      "id": "rm-text-3",
+      "heading": "Rotational KE and Angular Momentum",
+      "body": "Rotational kinetic energy:\nKE_rot = ½Iω²\n\nAngular momentum:\nL = Iω\n\nConservation of angular momentum: If no external torque acts, L is constant.\nI₁ω₁ = I₂ω₂\n\nExample: a spinning ice skater pulls their arms in, reducing I, which increases ω to conserve L.",
+      "deepDive": "Rolling objects have both translational and rotational KE. Total KE = ½mv² + ½Iω². For a rolling ball, this means it rolls more slowly down a ramp than a sliding block."
+    },
+    {
+      "type": "quiz",
+      "id": "rm-quiz-1",
+      "questionText": "A torque of 12 N·m acts on a disk with moment of inertia 4 kg·m². What is the angular acceleration?",
+      "options": ["0.33 rad/s²", "3 rad/s²", "8 rad/s²", "48 rad/s²"],
+      "correctIndex": 1,
+      "explanation": "τ = Iα → α = τ/I = 12/4 = 3 rad/s²"
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "rm-assess-1",
+        "questionText": "A skater spins with I = 2 kg·m² at ω = 3 rad/s. She pulls her arms in to I = 0.5 kg·m². What is her new angular velocity?",
+        "options": ["0.75 rad/s", "3 rad/s", "6 rad/s", "12 rad/s"],
+        "correctIndex": 3,
+        "explanation": "Conservation: I₁ω₁ = I₂ω₂. 2 × 3 = 0.5 × ω₂. ω₂ = 6/0.5 = 12 rad/s."
+      }
+    ]
+  }
+}

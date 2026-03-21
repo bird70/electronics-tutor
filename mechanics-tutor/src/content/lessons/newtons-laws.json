@@ -1,0 +1,53 @@
+{
+  "id": "newtons-laws",
+  "title": "Newton's Laws of Motion",
+  "conceptTags": ["dynamics", "forces"],
+  "learningObjectives": [
+    "State and apply Newton's three laws of motion",
+    "Use F = ma to solve dynamics problems",
+    "Identify action-reaction pairs"
+  ],
+  "introText": "Newton's three laws of motion form the foundation of classical mechanics and describe how forces affect the motion of objects.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "nl-text-1",
+      "heading": "Newton's First Law – Inertia",
+      "body": "An object will remain at rest or in uniform motion in a straight line unless acted upon by a net external force.\n\nThis is also called the law of inertia. Mass is a measure of an object's resistance to changes in motion.",
+      "deepDive": "Galileo first identified inertia. Newton formalised it as his first law. In the absence of friction, a moving object on a flat surface would continue forever."
+    },
+    {
+      "type": "text",
+      "id": "nl-text-2",
+      "heading": "Newton's Second Law – F = ma",
+      "body": "The net force on an object equals its mass multiplied by its acceleration:\n\nF_net = ma\n\nForce is measured in Newtons (N), mass in kilograms (kg), and acceleration in m/s². If multiple forces act, use vector addition to find the net force.",
+      "deepDive": "More precisely, F_net = dp/dt (rate of change of momentum). F = ma applies when mass is constant, which is true for most NCEA problems."
+    },
+    {
+      "type": "text",
+      "id": "nl-text-3",
+      "heading": "Newton's Third Law – Action & Reaction",
+      "body": "For every action there is an equal and opposite reaction.\n\nWhen object A exerts a force on object B, object B exerts an equal and opposite force on object A. These forces always act on different objects and never cancel each other out.",
+      "deepDive": "Common misconception: action-reaction pairs never act on the same object. The normal force on a book resting on a table is NOT Newton's 3rd pair to gravity – the pair to gravity is the book pulling Earth upward."
+    },
+    {
+      "type": "quiz",
+      "id": "nl-quiz-1",
+      "questionText": "A 5 kg object accelerates at 4 m/s². What is the net force acting on it?",
+      "options": ["1.25 N", "9 N", "20 N", "40 N"],
+      "correctIndex": 2,
+      "explanation": "F = ma = 5 × 4 = 20 N"
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "nl-assess-1",
+        "questionText": "A 10 kg object has forces of 40 N and 20 N acting in opposite directions. What is its acceleration?",
+        "options": ["2 m/s²", "4 m/s²", "6 m/s²", "60 m/s²"],
+        "correctIndex": 0,
+        "explanation": "Net force = 40 – 20 = 20 N. a = F/m = 20/10 = 2 m/s²"
+      }
+    ]
+  }
+}

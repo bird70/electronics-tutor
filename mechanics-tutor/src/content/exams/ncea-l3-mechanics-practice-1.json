@@ -1,0 +1,46 @@
+{
+  "id": "ncea-l3-mechanics-practice-1",
+  "title": "NCEA Level 3 Mechanics – Practice Paper 1",
+  "standard": "AS91523",
+  "totalMarks": 20,
+  "timeAllowedMinutes": 40,
+  "instructions": "Answer ALL questions. Show all working for short and long answer questions. Calculators are permitted. g = 9.81 m/s².",
+  "questions": [
+    {
+      "id": "p1-q1",
+      "marks": 2,
+      "type": "mc",
+      "questionText": "A car starts from rest and accelerates uniformly at 2 m/s² for 8 seconds. What is its final velocity?",
+      "options": ["4 m/s", "8 m/s", "16 m/s", "32 m/s"],
+      "correctIndex": 2,
+      "modelAnswer": "v = u + at = 0 + 2 × 8 = 16 m/s",
+      "explanation": "Using v = u + at with u = 0, a = 2 m/s², t = 8 s gives v = 16 m/s."
+    },
+    {
+      "id": "p1-q2",
+      "marks": 2,
+      "type": "mc",
+      "questionText": "A ball is launched at 45° to the horizontal at 20 m/s. Which component of velocity is zero at the highest point of its trajectory?",
+      "options": ["Horizontal velocity", "Vertical velocity", "Both components", "Neither component"],
+      "correctIndex": 1,
+      "modelAnswer": "The vertical velocity is zero at the peak of the trajectory.",
+      "explanation": "At maximum height, the ball momentarily stops moving vertically (vy = 0) before starting to fall. Horizontal velocity is constant throughout."
+    },
+    {
+      "id": "p1-q3",
+      "marks": 8,
+      "type": "short",
+      "questionText": "A 500 g ball is attached to a 1.2 m string and swung in a horizontal circle. The ball completes 3 full revolutions per second.\n(a) Calculate the angular velocity of the ball.\n(b) Calculate the centripetal acceleration.\n(c) Calculate the tension in the string.",
+      "modelAnswer": "(a) ω = 2πf = 2π × 3 = 6π ≈ 18.85 rad/s\n(b) a_c = ω²r = (6π)² × 1.2 ≈ 426 m/s²\n(c) T = F_c = ma_c = 0.5 × 426 ≈ 213 N",
+      "explanation": "This is a standard circular motion problem using ω = 2πf, a = ω²r, and F = ma."
+    },
+    {
+      "id": "p1-q4",
+      "marks": 8,
+      "type": "long",
+      "questionText": "A 2 kg trolley moving at 5 m/s to the right collides with a stationary 3 kg trolley. After the collision, the 2 kg trolley moves at 1 m/s to the right.\n(a) Calculate the velocity of the 3 kg trolley after the collision.\n(b) Calculate the kinetic energy before and after the collision.\n(c) Is this collision elastic or inelastic? Justify your answer.",
+      "modelAnswer": "(a) Conservation of momentum: 2×5 + 3×0 = 2×1 + 3×v. 10 = 2 + 3v. v = 8/3 ≈ 2.67 m/s to the right.\n(b) KE_before = ½×2×25 = 25 J. KE_after = ½×2×1 + ½×3×(8/3)² = 1 + 10.67 ≈ 11.67 J.\n(c) Inelastic – kinetic energy decreased from 25 J to ≈ 11.67 J. Energy was lost to heat/sound/deformation.",
+      "explanation": "Use conservation of momentum to find the unknown velocity, then compare KE before and after."
+    }
+  ]
+}

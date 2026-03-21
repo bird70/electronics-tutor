@@ -1,0 +1,9 @@
+{
+  "id": "intermediate-mechanics",
+  "title": "Intermediate Mechanics",
+  "goal": "Extend mechanics knowledge to 2D motion and momentum",
+  "difficultyBand": "intermediate",
+  "lessonIds": ["projectile-motion", "momentum-impulse"],
+  "prerequisitePlanIds": ["beginner-mechanics"],
+  "estimatedMinutes": 60
+}

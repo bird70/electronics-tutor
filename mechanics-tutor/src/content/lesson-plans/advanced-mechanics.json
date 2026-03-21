@@ -1,0 +1,9 @@
+{
+  "id": "advanced-mechanics",
+  "title": "Advanced Mechanics",
+  "goal": "Master NCEA Level 3 mechanics: circular motion, rotation and SHM",
+  "difficultyBand": "advanced",
+  "lessonIds": ["circular-motion", "rotational-mechanics", "simple-harmonic-motion"],
+  "prerequisitePlanIds": ["intermediate-mechanics"],
+  "estimatedMinutes": 90
+}

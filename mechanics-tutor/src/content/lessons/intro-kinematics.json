@@ -1,0 +1,53 @@
+{
+  "id": "intro-kinematics",
+  "title": "Introduction to Kinematics",
+  "conceptTags": ["kinematics"],
+  "learningObjectives": [
+    "Define displacement, velocity and acceleration",
+    "Use SUVAT equations to solve 1D motion problems",
+    "Distinguish scalar and vector quantities"
+  ],
+  "introText": "Kinematics is the branch of physics that describes the motion of objects without considering the forces that cause the motion.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "kin-text-1",
+      "heading": "What is Kinematics?",
+      "body": "Kinematics describes motion using five variables: displacement (s), initial velocity (u), final velocity (v), acceleration (a), and time (t). The four SUVAT equations relate these variables for uniform acceleration.",
+      "deepDive": "The word 'kinematics' comes from the Greek word for motion. It is a purely geometric description of motion, independent of the forces causing it."
+    },
+    {
+      "type": "text",
+      "id": "kin-text-2",
+      "heading": "The Four SUVAT Equations",
+      "body": "1. v = u + at\n2. s = ut + ½at²\n3. v² = u² + 2as\n4. s = ½(u + v)t\n\nYou need any three variables to find the other two.",
+      "deepDive": "These equations only apply when acceleration is constant. If acceleration varies, you need calculus (integration)."
+    },
+    {
+      "type": "interactive",
+      "id": "kin-interactive-1",
+      "heading": "SUVAT Solver",
+      "simulationKey": "kinematics-solver",
+      "instructionText": "Enter any three known values. The solver will calculate the remaining unknowns."
+    },
+    {
+      "type": "quiz",
+      "id": "kin-quiz-1",
+      "questionText": "A car accelerates from rest at 3 m/s² for 5 seconds. What is its final velocity?",
+      "options": ["10 m/s", "15 m/s", "20 m/s", "25 m/s"],
+      "correctIndex": 1,
+      "explanation": "Using v = u + at: v = 0 + 3 × 5 = 15 m/s"
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "kin-assess-1",
+        "questionText": "Which SUVAT equation would you use to find displacement when you know u, v, and t?",
+        "options": ["v = u + at", "s = ut + ½at²", "s = ½(u + v)t", "v² = u² + 2as"],
+        "correctIndex": 2,
+        "explanation": "s = ½(u + v)t uses only u, v, and t to find displacement."
+      }
+    ]
+  }
+}

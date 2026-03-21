@@ -1,0 +1,54 @@
+{
+  "id": "work-energy-power",
+  "title": "Work, Energy and Power",
+  "conceptTags": ["energy"],
+  "learningObjectives": [
+    "Calculate work done using W = Fd cosθ",
+    "Apply the work-energy theorem",
+    "Use conservation of energy to solve problems",
+    "Calculate power as rate of energy transfer"
+  ],
+  "introText": "Energy is the capacity to do work. Understanding how energy is transferred, transformed, and conserved is fundamental to mechanics.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "wep-text-1",
+      "heading": "Work Done",
+      "body": "Work is done when a force moves an object through a displacement:\n\nW = F d cosθ\n\nwhere F is the force, d is the displacement, and θ is the angle between the force and displacement. Work is measured in Joules (J).\n\nIf the force is perpendicular to displacement (θ = 90°), no work is done.",
+      "deepDive": "Work is a scalar quantity (no direction). Negative work means the force opposes the motion, e.g. friction does negative work on a sliding object."
+    },
+    {
+      "type": "text",
+      "id": "wep-text-2",
+      "heading": "Kinetic and Potential Energy",
+      "body": "Kinetic energy (KE) is the energy of motion:\nKE = ½mv²\n\nGravitational potential energy (GPE) is stored due to height:\nGPE = mgh\n\nElastic potential energy is stored in stretched/compressed springs:\nEPE = ½kx²",
+      "deepDive": "The work-energy theorem states: W_net = ΔKE. The net work done on an object equals its change in kinetic energy."
+    },
+    {
+      "type": "text",
+      "id": "wep-text-3",
+      "heading": "Conservation of Energy",
+      "body": "In an isolated system, total mechanical energy is conserved:\n\nKE₁ + GPE₁ = KE₂ + GPE₂\n\nWhen friction is present, energy is converted to thermal energy:\n\nKE₁ + GPE₁ = KE₂ + GPE₂ + W_friction\n\nPower is the rate of energy transfer: P = W/t = Fv (measured in Watts).",
+      "deepDive": "Conservation of energy is one of the most fundamental principles in physics. It applies across all energy forms – mechanical, electrical, thermal, chemical, nuclear."
+    },
+    {
+      "type": "quiz",
+      "id": "wep-quiz-1",
+      "questionText": "A 2 kg ball is dropped from a height of 5 m. What is its kinetic energy just before it hits the ground? (g = 10 m/s²)",
+      "options": ["10 J", "50 J", "100 J", "200 J"],
+      "correctIndex": 2,
+      "explanation": "GPE at top = mgh = 2 × 10 × 5 = 100 J. By conservation of energy, KE just before impact = 100 J."
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "wep-assess-1",
+        "questionText": "A 500 W motor lifts a 10 kg box at constant speed. How high can it raise it in 4 seconds? (g = 10 m/s²)",
+        "options": ["2 m", "20 m", "200 m", "0.2 m"],
+        "correctIndex": 1,
+        "explanation": "Energy available = Pt = 500 × 4 = 2000 J. mgh = 2000, h = 2000/(10×10) = 20 m."
+      }
+    ]
+  }
+}

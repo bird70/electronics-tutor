@@ -1,0 +1,53 @@
+{
+  "id": "circular-motion",
+  "title": "Circular Motion",
+  "conceptTags": ["circular-motion"],
+  "learningObjectives": [
+    "Define angular velocity and centripetal acceleration",
+    "Apply the centripetal force formula F = mv²/r",
+    "Solve problems involving objects moving in circular paths"
+  ],
+  "introText": "Circular motion occurs when an object moves in a circular path at constant speed. Even though the speed is constant, the velocity changes direction, requiring a centripetal force directed toward the centre.",
+  "steps": [
+    {
+      "type": "text",
+      "id": "cm-text-1",
+      "heading": "Centripetal Acceleration",
+      "body": "For an object moving in a circle of radius r at speed v:\n\nCentripetal acceleration: a_c = v²/r\n\nThis acceleration always points toward the centre of the circle. It changes the direction of velocity without changing its magnitude.",
+      "deepDive": "The word 'centripetal' means 'centre-seeking'. Do not confuse centripetal force with 'centrifugal force' – centrifugal force is a fictitious force in a rotating reference frame."
+    },
+    {
+      "type": "text",
+      "id": "cm-text-2",
+      "heading": "Angular Velocity and Period",
+      "body": "Angular velocity (ω) measures how fast the angle changes:\nω = 2π/T = 2πf\n\nRelationship to linear speed:\nv = ωr\n\nCentripetal force:\nF_c = mv²/r = mω²r\n\nThis force must be provided by some real force: tension in a string, friction, gravity, or a normal force.",
+      "deepDive": "For a satellite orbiting Earth, gravity provides the centripetal force. Setting mg = mv²/r and solving gives the orbital speed."
+    },
+    {
+      "type": "interactive",
+      "id": "cm-interactive-1",
+      "heading": "Circular Motion Simulator",
+      "simulationKey": "circular-motion-sim",
+      "instructionText": "Adjust radius, mass and speed. Observe how angular velocity, period, and centripetal force change. The red arrow shows the velocity direction."
+    },
+    {
+      "type": "quiz",
+      "id": "cm-quiz-1",
+      "questionText": "A 0.5 kg object moves in a circle of radius 2 m at a speed of 4 m/s. What centripetal force is required?",
+      "options": ["1 N", "2 N", "4 N", "8 N"],
+      "correctIndex": 2,
+      "explanation": "F_c = mv²/r = 0.5 × 16 / 2 = 4 N"
+    }
+  ],
+  "assessment": {
+    "questions": [
+      {
+        "id": "cm-assess-1",
+        "questionText": "An object completes 5 full revolutions per second in a circle of radius 0.2 m. What is its angular velocity?",
+        "options": ["5 rad/s", "10π rad/s", "π rad/s", "2π rad/s"],
+        "correctIndex": 1,
+        "explanation": "ω = 2πf = 2π × 5 = 10π rad/s ≈ 31.4 rad/s"
+      }
+    ]
+  }
+}
