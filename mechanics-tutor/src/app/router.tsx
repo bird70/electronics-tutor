@@ -6,7 +6,7 @@ import { HomePage } from './routes/HomePage'
 
 export function AppRouter() {
   return (
-    <BrowserRouter basename="/mechanics-tutor">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="app-shell">
         <nav className="nav-bar">
           <Link to="/" className="nav-logo">⚛️ Mechanics Tutor</Link>

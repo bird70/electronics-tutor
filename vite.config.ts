@@ -9,4 +9,7 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  test: {
+    exclude: ['mechanics-tutor/**', 'node_modules/**'],
+  },
 });
